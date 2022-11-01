@@ -1,6 +1,6 @@
 package enums;
 
-public enum movieShowingStatus {
+public enum showingStatus {
     COMING_SOON,
     PREVIEW,
     NOW_SHOWING,

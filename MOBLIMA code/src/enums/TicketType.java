@@ -1,3 +1,4 @@
+package enums;
 import java.util.Objects;
 
 public enum TicketType {
