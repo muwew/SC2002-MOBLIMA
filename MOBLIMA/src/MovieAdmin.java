@@ -13,8 +13,6 @@ public class MovieAdmin extends Account implements Serializable {
         System.out.println("================================================");
         System.out.println("1) Add movie");
         System.out.println("2) Update existing movie");
-        System.out.println("3) List top 5 movies");
-        System.out.println("4) List current movie listing");
         System.out.println("0) Back");
         System.out.println("================================================");
 
@@ -28,20 +26,10 @@ public class MovieAdmin extends Account implements Serializable {
                 case 2:
                     movieList = showEditMenu(movieList);
                     break;
-                case 3:
-                    listTop5();
-                    break;
-                case 4:
-                    printMovieList(movieList);
-                    break;
-                case 5:
-                    break;
             }
             System.out.println("================================================");
             System.out.println("1) Add movie");
             System.out.println("2) Update existing movie");
-            System.out.println("3) List top 5 movies");
-            System.out.println("4) List current movie listing");
             System.out.println("0) Back");
             System.out.println("================================================");
 
@@ -54,7 +42,7 @@ public class MovieAdmin extends Account implements Serializable {
    public ArrayList<Movie> addMovie(ArrayList<Movie> movieList) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter movie title: ");
-        String title = sc.next();
+        String title = sc.nextLine();
 
         Movie movieToAdd = new Movie(title);
 
@@ -147,9 +135,9 @@ public class MovieAdmin extends Account implements Serializable {
                 case 1:
                     //add movie slot
                     System.out.println("Enter date and time of movie: ");
-                    System.out.println("month <space> dayOfMonth <space> startHour(24h) <space> startMin");
-                    int m = sc.nextInt();
+                    System.out.println("dayofMonth <space> month <space> startHour(24h) <space> startMin");
                     int d = sc.nextInt();
+                    int m = sc.nextInt();
                     int h = sc.nextInt();
                     int min = sc.nextInt();
 
@@ -167,7 +155,7 @@ public class MovieAdmin extends Account implements Serializable {
                 case 2:
                     int i = 1;
                     for (MovieSlot e1 : movieSlots) {
-                        System.out.println(i++ + ")" + e1.getCinema().getLocation() + ", " + e1.getaDate().getTime());
+                        System.out.println(i++ + ") <" + e1.getCinema().getLocation() + ">: " + e1.getaDate().getTime());
                     }
                     System.out.println("0) Back");
                     System.out.println("Which movie slot would you like to delete?");
