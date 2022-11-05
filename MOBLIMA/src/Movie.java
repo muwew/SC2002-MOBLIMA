@@ -11,7 +11,7 @@ public class Movie implements Serializable {
     public Movie(String movieTitle){
         this.movieTitle = movieTitle;
         this.movieSlot = new ArrayList<MovieSlot>();
-        this.movieDetails = null;
+        this.movieDetails = new MovieDetails();
     }
 
     public String getMovieTitle() {
@@ -25,6 +25,7 @@ public class Movie implements Serializable {
     public String getMovieShowingStatus(){
         return movieShowingStatus.toString();
     }
+    public void setMovieShowingStatus(MovieShowingStatus m){this.movieShowingStatus = m;}
 
     public void setMovieShowingStatus(){
         Scanner sc = new Scanner(System.in);
@@ -58,6 +59,9 @@ public class Movie implements Serializable {
     public MovieDetails getMovieDetails(){
         return movieDetails;
     }
+    public void setMovieDetails(MovieDetails m){
+        this.movieDetails = m;
+    }
     public void setMovieDetails(){
         Scanner sc = new Scanner(System.in);
         MovieDetails movieDetails1 = new MovieDetails();
@@ -68,19 +72,5 @@ public class Movie implements Serializable {
             cast.add(input);
             input = sc.nextLine();
         }
-        movieDetails1.setCast(cast);
-        System.out.println("Enter director name: ");
-        movieDetails1.setDirector(sc.nextLine());
-        System.out.println("Enter sypnosis: ");
-        movieDetails1.setSypnosis(sc.nextLine());
-        System.out.println("Enter language: ");
-        movieDetails1.setLanguage(sc.nextLine());
-        movieDetails1.setMovieRated();
-        System.out.println("Enter runtime (in minutes): ");
-        movieDetails1.setRuntime(sc.nextInt());
-        System.out.println("Enter opening date: ");
-        movieDetails1.setOpeningDate(sc.next());
-
     }
-
 }

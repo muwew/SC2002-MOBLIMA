@@ -1,7 +1,8 @@
 package MOBLIMA.src;
+import java.io.Serializable;
 import java.util.*;
 
-public class MovieDetails {
+public class MovieDetails implements Serializable {
     private ArrayList<String> cast;
     private String director;
     private String sypnosis;
@@ -9,20 +10,20 @@ public class MovieDetails {
     private Rated movieRated;
     private int runtime;
     private String openingDate;
-    private int rating;
+    private double rating;
 
     //constructor
     public MovieDetails(){
         this.cast = null;
-        this.director = null;
-        this.sypnosis = null;
-        this.language = null;
-        this.movieRated = null;
+        this.director = "";
+        this.sypnosis = "";
+        this.language = "";
+        this.movieRated = Rated.G;
         this.runtime = -1;
-        this.openingDate = null;
+        this.openingDate = "";
         this.rating = -1;
     }
-    public MovieDetails(ArrayList<String> cast, String director, String sypnosis, String language, Rated movieRated, int runtime, String openingDate, int rating){
+    public MovieDetails(ArrayList<String> cast, String director, String sypnosis, String language, Rated movieRated, int runtime, String openingDate, double rating){
         this.cast = cast;
         this.director = director;
         this.sypnosis = sypnosis;
@@ -112,11 +113,11 @@ public class MovieDetails {
         this.openingDate = openingDate;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
@@ -135,4 +136,5 @@ public class MovieDetails {
         System.out.println("Overall reviewer rating: "+rating);
 
     }
+
 }

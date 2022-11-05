@@ -1,8 +1,8 @@
 package MOBLIMA.src;
-import java.util.Objects;
 public enum Rated {
 
     G, PG, PG13, NC16, M18, R21;
+
     public String toString () {
         switch (this) {
             case G:

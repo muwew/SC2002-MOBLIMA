@@ -19,7 +19,5 @@ public abstract class Account implements Serializable {
         return password;
     }
 
-    abstract public void listTop5();
-    abstract public void printMovieList(ArrayList<Movie> movieList);
 
 }
