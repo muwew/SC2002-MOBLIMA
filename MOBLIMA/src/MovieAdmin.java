@@ -7,6 +7,7 @@ public class MovieAdmin extends Account implements Serializable {
     public MovieAdmin(String username, String password) {
         super(username, password);
     }
+<<<<<<< Updated upstream
 
     public ArrayList<Movie> showMainMenu(ArrayList<Movie> movieList) {
         Scanner sc = new Scanner(System.in);
@@ -190,15 +191,8 @@ public class MovieAdmin extends Account implements Serializable {
         return movieList;
     }
 
+=======
+>>>>>>> Stashed changes
     
-    public void listTop5() {
-    }
 
-    public void printMovieList(ArrayList<Movie> movieList) {
-        System.out.println("Current movie listing: ");
-        int i=1;
-        for(Movie e: movieList){
-            System.out.println(i++ +") "+e.getMovieTitle()+" <"+e.getMovieShowingStatus()+">");
-        }
-    }
 }

@@ -10,7 +10,11 @@ public class Movie implements Serializable {
     public Movie(String movieTitle){
         this.movieTitle = movieTitle;
         this.movieSlot = new ArrayList<MovieSlot>();
+<<<<<<< Updated upstream
         //this.movieShowingStatus = MovieShowingStatus.END_SHOWING;
+=======
+        this.movieDetails = new MovieDetails();
+>>>>>>> Stashed changes
     }
 
     public String getMovieTitle() {
@@ -24,6 +28,7 @@ public class Movie implements Serializable {
     public String getMovieShowingStatus(){
         return movieShowingStatus.toString();
     }
+    public void setMovieShowingStatus(MovieShowingStatus m){this.movieShowingStatus = m;}
 
     public void setMovieShowingStatus(){
         Scanner sc = new Scanner(System.in);
@@ -54,11 +59,29 @@ public class Movie implements Serializable {
         this.movieSlot = movieSlot;
     }
 
+<<<<<<< Updated upstream
     @Override
     public boolean equals(Object object){
         boolean sameSame = false;
         if(object != null && object instanceof Movie){
             sameSame = this.movieTitle == ((Movie)object).movieTitle;
+=======
+    public MovieDetails getMovieDetails(){
+        return movieDetails;
+    }
+    public void setMovieDetails(MovieDetails m){
+        this.movieDetails = m;
+    }
+    public void setMovieDetails(){
+        Scanner sc = new Scanner(System.in);
+        MovieDetails movieDetails1 = new MovieDetails();
+        System.out.println("Enter cast member's name: (type 0 to stop)");
+        ArrayList<String> cast = new ArrayList<>();
+        String input = sc.nextLine();
+        while(input != "0"){
+            cast.add(input);
+            input = sc.nextLine();
+>>>>>>> Stashed changes
         }
 
         return sameSame;
