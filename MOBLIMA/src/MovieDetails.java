@@ -7,11 +7,8 @@ public class MovieDetails implements Serializable {
     private String director;
     private String sypnosis;
     private String language;
-    private Rating rating;
+    private Rated movieRated;
     private int runtime;
-<<<<<<< Updated upstream
-
-=======
     private String openingDate;
     private double rating;
 
@@ -139,5 +136,5 @@ public class MovieDetails implements Serializable {
         System.out.println("Overall reviewer rating: "+rating);
 
     }
->>>>>>> Stashed changes
+
 }

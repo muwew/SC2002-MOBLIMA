@@ -43,13 +43,13 @@ public class Cinema implements Serializable {
     }
 
     public void setElite() {
-        System.out.println("Seats are:\n1)ELITE 2)NORMAL");
+        System.out.println("Seats are:\n1)NORMAL 2)ELITE");
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
         if(choice == 1)
-            isElite = true;
-        else
             isElite = false;
+        else
+            isElite = true;
     }
 
     public CinemaClass getCinemaClass() {

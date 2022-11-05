@@ -6,15 +6,12 @@ public class Movie implements Serializable {
     private ArrayList<MovieSlot> movieSlot;
 
     private MovieShowingStatus movieShowingStatus;
+    private MovieDetails movieDetails;
 
     public Movie(String movieTitle){
         this.movieTitle = movieTitle;
         this.movieSlot = new ArrayList<MovieSlot>();
-<<<<<<< Updated upstream
-        //this.movieShowingStatus = MovieShowingStatus.END_SHOWING;
-=======
         this.movieDetails = new MovieDetails();
->>>>>>> Stashed changes
     }
 
     public String getMovieTitle() {
@@ -59,13 +56,6 @@ public class Movie implements Serializable {
         this.movieSlot = movieSlot;
     }
 
-<<<<<<< Updated upstream
-    @Override
-    public boolean equals(Object object){
-        boolean sameSame = false;
-        if(object != null && object instanceof Movie){
-            sameSame = this.movieTitle == ((Movie)object).movieTitle;
-=======
     public MovieDetails getMovieDetails(){
         return movieDetails;
     }
@@ -81,9 +71,6 @@ public class Movie implements Serializable {
         while(input != "0"){
             cast.add(input);
             input = sc.nextLine();
->>>>>>> Stashed changes
         }
-
-        return sameSame;
     }
 }
