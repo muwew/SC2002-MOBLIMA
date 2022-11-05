@@ -2,29 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48634123-a2b4-439c-bc33-02e0a7a0bcce" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/MOBLIMA/src/AdminMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MOBLIMA/src/App_old.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MOBLIMA/src/DataManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MOBLIMA/src/MainMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MOBLIMA/src/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MOBLIMA/src/NewApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/adminaccounts.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/FileIO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/MovieAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/MovieAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/MovieDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/MovieDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Rated.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/Rated.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movielist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/movielist.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Account.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Cinema.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Cinema.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Movie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/MovieAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/MovieAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/MovieDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/MovieDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Rated.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Rated.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/movielist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/movielist.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
