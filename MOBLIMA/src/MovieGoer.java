@@ -3,72 +3,74 @@ import java.io.Serializable;
 import java.util.*;
 
 public class MovieGoer extends Account implements Serializable {
-    public int age;
-    // public Booking[] bookingHistory;
-    public AgeBracket ageBracket;
-    public String mobileNumber;
-    public String emailAddress;
+
+    private static final long serialVersionUID = 7689870075709929042L;
+
+    private String name;
+    private Integer mobileNumber;
+    private String emailAddress;
+    private Integer age;
+    private AgeBracket ageBracket;
+    private ArrayList<Booking> bookingHistory;
 
 
-    public MovieGoer(String username, String password) {
+    public MovieGoer(String username, String name, Integer mobileNumber, String emailAddress, String password, ArrayList<Booking> bookingHistory, AgeBracket ageBracket, Integer age) {
         super(username, password);
-    }
-
-
-    public int getAge() {
-        return this.age;
-    }
-
-    public void setAge(int age) {
+        this.name = name;
+        this.mobileNumber = mobileNumber;
+        this.emailAddress = emailAddress;
+        this.bookingHistory = bookingHistory;
         this.age = age;
-    }
-
-    public String getAgeBracket() {
-        return ageBracket.toString();
-    }
-
-    public void setAgeBracket(AgeBracket ageBracket) {
         this.ageBracket = ageBracket;
     }
 
-    public void setAgeBracket(int age){
-        Scanner sc = new Scanner(System.in);
-        if (age < 12){
-            this.ageBracket = AgeBracket.CHILD;
-        }
-        else{
-            System.out.println("Are you a student?");
-            System.out.println("1) YES");
-            System.out.println("2) NO");
-            int choice = sc.nextInt();
-            switch(choice){
-                case 1:
-                    this.ageBracket = AgeBracket.STUDENT;
-                    break;
-                case 2:
-                    this.ageBracket = AgeBracket.ADULT;
-                    break;
-            }
-        }
+
+    public String getName() {
+        return name;
     }
 
-    public String getMobileNumber() {
-        return this.mobileNumber;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setMobileNumber(String mobileNumber) {
+    public Integer getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(Integer mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
 
     public String getEmailAddress() {
-        return this.emailAddress;
+        return emailAddress;
     }
 
     public void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
+    public Integer getAge() {
+        return age;
+    }
 
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 
+    public ArrayList<Booking> getBookingHistory() {
+        return bookingHistory;
+    }
+
+    public void setBookingHistory(ArrayList<Booking> bookingHistory) {
+        this.bookingHistory = bookingHistory;
+    }
+
+    public AgeBracket getAgeBracket() {
+        return ageBracket;
+    }
+
+    public void setAgeBracket(AgeBracket ageBracket) {
+        this.ageBracket = ageBracket;
+    }
 
 }

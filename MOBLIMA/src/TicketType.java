@@ -1,4 +1,5 @@
 package MOBLIMA.src;
+
 import java.util.Objects;
 
 public enum TicketType {

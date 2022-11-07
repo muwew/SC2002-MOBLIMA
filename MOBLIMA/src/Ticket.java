@@ -1,24 +1,25 @@
 package MOBLIMA.src;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Ticket {
+public class Ticket implements Serializable {
 
     // Attributes
     private TicketDetails ticketDetails;
     private Seat seat;
-    // private MovieSlot movieSlot;
+    private MovieSlot movieSlot;
 
     // Constructor
     public Ticket () {
-        this.ticketDetails = null;
+        this.ticketDetails = new TicketDetails();
         this.seat = null;
-        // this.movieSlot = null;
+        this.movieSlot = null;
     }
 
-    public Ticket (TicketDetails ticketDetails, Seat seat/*, MovieSlot movieSlot*/) {
+    public Ticket (TicketDetails ticketDetails, Seat seat, MovieSlot movieSlot) {
         this.ticketDetails = ticketDetails;
         this.seat = seat;
-        // this.movieSlot = movieSlot;
+        this.movieSlot = movieSlot;
     }
 
     // Getters and setters
@@ -38,6 +39,14 @@ public class Ticket {
         this.seat = seat;
     }
 
+    public MovieSlot getMovieSlot() {
+        return movieSlot;
+    }
+
+    public void setMovieSlot(MovieSlot movieSlot) {
+        this.movieSlot = movieSlot;
+    }
+
     // Methods
     public void printTicketDetails () {
         System.out.println("Details of ticket are as follows:\n" +
@@ -45,7 +54,8 @@ public class Ticket {
                 "Ticket Type: " + ticketDetails.getTicketType().toString() + "\n" +
                 "Age Bracket: " + ticketDetails.getAgeBracket().toString() + "\n" +
                 "Cinema Class: " + ticketDetails.getCinemaClass().toString() + "\n" +
-                "Seat: " + seat.getSeatID() /* + "\n" +
+                "Seat: " + seat.getSeatID() + "\n" +
+                "Seat Type: " + seat.getSeatType()/* + "\n" +
                 "Movie Name: " + movieSlot.getMovie().getMovieName()*/ );
     }
 }

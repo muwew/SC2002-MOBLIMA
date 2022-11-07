@@ -3,17 +3,16 @@ import java.io.Serializable;
 import java.util.*;
 
 public class MovieSlot implements Serializable {
-    //private String date; //2change
     private Calendar aDate;
-    //private String time; //2change
     private Cinema cinema;
     private MovieType movieType;
+    private Movie movie;
 
-
-    public MovieSlot(int m, int d, int h, int min, Cinema cinema){
+    public MovieSlot(int m, int d, int h, int min, Cinema cinema, Movie movie){
         this.aDate = new GregorianCalendar(2022, m, d, h, min);
         this.cinema = cinema;
         this.movieType = MovieType.DIGITAL;
+        this.movie = movie;
     }
     public MovieType getMovieType(){
         return movieType;
@@ -57,5 +56,17 @@ public class MovieSlot implements Serializable {
 
     public void setaDate(Calendar aDate) {
         this.aDate = aDate;
+    }
+
+    public void setMovieType(MovieType movieType) {
+        this.movieType = movieType;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 }

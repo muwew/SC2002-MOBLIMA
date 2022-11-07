@@ -1,7 +1,7 @@
 package MOBLIMA.src;
 import java.io.Serializable;
 import java.util.*;
-import java.math.*;
+import static MOBLIMA.src.Util.*;
 
 public class MovieDetails implements Serializable {
     private ArrayList<String> cast;
@@ -12,9 +12,6 @@ public class MovieDetails implements Serializable {
     private int runtime;
     private String openingDate;
     private double rating;
-    private ArrayList<Double> ratingList = new ArrayList<Double>();
-    private ArrayList<String> reviewList = new ArrayList<String>();
-
 
     //constructor
     public MovieDetails(){
@@ -26,20 +23,16 @@ public class MovieDetails implements Serializable {
         this.runtime = -1;
         this.openingDate = "";
         this.rating = -1;
-        this.ratingList = null;
-        this.reviewList = null;
     }
-    public MovieDetails(ArrayList<String> cast, String director, String sypnosis, String language, Rated movieRated, int runtime, String openingDate, double rating, ArrayList<Double> ratingList,  ArrayList<String> reviewList){
+    public MovieDetails(ArrayList<String> cast, String director, String synopsis, String language, Rated movieRated, int runtime, String openingDate, double rating){
         this.cast = cast;
         this.director = director;
-        this.sypnosis = sypnosis;
+        this.sypnosis = synopsis;
         this.language = language;
         this.movieRated = movieRated;
         this.runtime = runtime;
         this.openingDate = openingDate;
         this.rating = rating;
-        this.ratingList = ratingList;
-        this.reviewList = reviewList;
     }
 
     //getters and setters
@@ -129,59 +122,25 @@ public class MovieDetails implements Serializable {
         this.rating = rating;
     }
 
-    public void setRating(){
-        double sum = 0;
-        for(Double d: ratingList){
-            sum += d;
-        }
-        //complicated shit for rounding
-        BigDecimal average = new BigDecimal(sum/ratingList.size()).setScale(1, RoundingMode.HALF_UP);
-        this.rating = average.doubleValue();
-    }
-
     public void printMovieDetails(){
-        System.out.print("Cast:");
+        System.out.print("Cast: ");
         for(String castMember : cast){
-            System.out.print(castMember+", ");
+            if(castMember.equals(cast.get(cast.size()-1)))
+                System.out.println(castMember);
+            else
+                System.out.print(castMember+", ");
         }
-        System.out.println("\nDirector: "+director);
-        System.out.println("Sypnosis:");
-        System.out.println(sypnosis);
+        System.out.println("Director: "+director);
+        System.out.println("Sypnosis: " + printLongString(sypnosis, 70));
         System.out.println("Language: "+language);
         System.out.println("Rating: "+movieRated.toString());
-        System.out.println("Runtime: "+runtime);
-        //System.out.println("Opening Date: "+openingDate.);
-        System.out.println("Overall reviewer rating: "+rating);
-        System.out.println("\n");
-        System.out.println("Last 3 reviews and ratings: ");
-        for(int i=0; i<3; i++){
-            try{
-                System.out.println("Rating: " + ratingList.get(i));
-                System.out.println("Review: " + reviewList.get(i));
-                System.out.println("\n");
-            }
-            catch(Exception e){
-                break;
-            }
-        }
+        System.out.println("Runtime: "+runtime + " mins") ;
+        System.out.println("Opening Date: "+openingDate);
+        if(rating == -1)
+            System.out.println("Overall reviewer rating : NA");
+        else
+            System.out.println("Overall reviewer rating: "+rating);
 
     }
-
-    public ArrayList<Double> getRatingList() {
-        return this.ratingList;
-    }
-
-    public void setRatingList(ArrayList<Double> ratingList) {
-        this.ratingList = ratingList;
-    }
-
-    public ArrayList<String> getReviewList() {
-        return this.reviewList;
-    }
-
-    public void setReviewList(ArrayList<String> reviewList) {
-        this.reviewList = reviewList;
-    }
-    
 
 }

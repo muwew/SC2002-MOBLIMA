@@ -1,4 +1,5 @@
 package MOBLIMA.src;
+
 public class Seat {
 
     // Attributes
@@ -68,7 +69,7 @@ public class Seat {
 
     public void deSelectSeat () {
         this.seatSelected = false;
-        System.out.println("You have de-selected " + this.seatID + ". Thank you!");
+        //System.out.println("You have de-selected " + this.seatID + ". Thank you!");
     }
 
     public void occupySeat () {

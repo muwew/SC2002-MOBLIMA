@@ -18,7 +18,7 @@ public class MainMenu extends Menu{
         switch(choice){
             case 1:
                 //user part
-                open(this, new GuestMenu());
+                open(this, new UserMenu());
                 break;
             case 2:
                 //admin part

@@ -21,6 +21,21 @@ public enum Location {
         }
     }
 
+    public String toCode(){
+        switch (this) {
+            case JEM:
+                return "JE";
+
+            case WEST_MALL:
+                return "WM";
+
+            case JURONG_POINT:
+                return "JP";
+
+            default:
+                return null;
+        }
+    }
     public boolean equals (Location otherLocation) {
         return Objects.equals(this.toString(), otherLocation.toString());
     }

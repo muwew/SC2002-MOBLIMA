@@ -2,7 +2,7 @@ package MOBLIMA.src;
 import java.util.Objects;
 
 public enum AgeBracket {
-    STUDENT, CHILD, ADULT;
+    STUDENT, CHILD, ADULT, SENIOR_CTZ;
 
     public String toString () {
         switch (this) {
@@ -14,6 +14,9 @@ public enum AgeBracket {
 
             case ADULT:
                 return "Adult";
+
+            case SENIOR_CTZ:
+                return "Senior Citizen";
 
             default:
                 return null;

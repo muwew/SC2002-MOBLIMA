@@ -8,12 +8,14 @@ public class AdminMenu extends Menu {
     private ArrayList<MovieAdmin> adminList = (ArrayList<MovieAdmin>) readData("adminaccounts.txt");
     private boolean loggedIn = false;
     Scanner sc = new Scanner(System.in);
-    public AdminMenu() {}
+    public AdminMenu(){}
 
     protected void printMenu() {
         boolean exit = false;
 
+        System.out.println("================================================");
         System.out.println("Welcome Admin! Please log into your account!");
+        System.out.println("================================================");
         while (exit == false && loggedIn == false) {
             System.out.println("Enter username: (type 0 to quit)");
             String username = sc.next();
@@ -42,11 +44,11 @@ public class AdminMenu extends Menu {
         if (exit) open(this, this.prevMenu);
         else if (loggedIn) {
             movieList = (ArrayList<Movie>) readData("movielist.txt");
-            printAdminOptions();
+            adminOptions();
         }
     }
 
-    protected void printAdminOptions() {
+    protected void adminOptions() {
         System.out.println("================================================");
         System.out.println("1) Add movie listing");
         System.out.println("2) Update movie listing");
@@ -81,7 +83,7 @@ public class AdminMenu extends Menu {
             System.out.println("Logging out...");
             open(this, this.prevMenu);
         }
-        else printAdminOptions();
+        else adminOptions();
     }
 
     protected void addMovie() {
@@ -102,7 +104,7 @@ public class AdminMenu extends Menu {
             }
         }
 
-        if (exit) printAdminOptions();
+        if (exit) adminOptions();
         else if (valid) {
             movieToAdd.setMovieShowingStatus();
             if (movieToAdd.getMovieShowingStatus() != "END_SHOWING")
@@ -130,7 +132,7 @@ public class AdminMenu extends Menu {
             System.out.println("Which movie's " + options[choice - 1] + " would you like to update?");
             int index = sc.nextInt();
 
-            if (index != 0 || index > movieList.size()) {
+            if (index != 0 && index < movieList.size()) {
                 switch (choice) {
                     case 1:
                         updateMovieShowingStatus(movieList.get(index - 1));
@@ -140,12 +142,13 @@ public class AdminMenu extends Menu {
                         break;
                     case 3:
                         updateMovieDetails(movieList.get(index - 1).getMovieDetails());
+                        break;
                 }
             }
         }
         else exit = true;
 
-        if(exit) printAdminOptions();
+        if(exit) adminOptions();
         else updateMovie();
     }
 
@@ -155,7 +158,6 @@ public class AdminMenu extends Menu {
     }
 
     protected void updateMovieSlots(Movie movie){
-        int index = sc.nextInt();
         boolean exit = false;
 
         while(!exit){
@@ -169,7 +171,7 @@ public class AdminMenu extends Menu {
 
             switch(choice){
                 case 1:
-                    addMovieSlot(movie.getMovieSlots());
+                    addMovieSlot(movie.getMovieSlots(), movie);
                     break;
                 case 2:
                     deleteMovieSlot(movie.getMovieSlots());
@@ -183,7 +185,7 @@ public class AdminMenu extends Menu {
         if(exit) updateMovie();
     }
 
-    protected void addMovieSlot(ArrayList<MovieSlot> newMovieSlots){
+    protected void addMovieSlot(ArrayList<MovieSlot> newMovieSlots, Movie movie){
         try {
             System.out.println("================================================");
             System.out.println("Enter date and time of movie: ");
@@ -195,12 +197,11 @@ public class AdminMenu extends Menu {
 
             Cinema cinema = new Cinema();
             cinema.setCinemaClass();
-            cinema.setElite();
             cinema.setLocation();
             System.out.println("Enter cinema number (1-3):");
             int cinemaNo = sc.nextInt();
             cinema.setCinemaNo(cinemaNo);
-            MovieSlot movieslot = new MovieSlot(m, d, h, min, cinema);
+            MovieSlot movieslot = new MovieSlot(m, d, h, min, cinema, movie);
             movieslot.setMovieType();
 
             newMovieSlots.add(movieslot);
@@ -281,7 +282,7 @@ public class AdminMenu extends Menu {
 
     }
 
-    public void printMovieList() {
+    protected void printMovieList() {
         System.out.println("================================================");
         System.out.println("Current movie listing: ");
         int i=1;

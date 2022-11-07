@@ -24,8 +24,5 @@ public enum MovieShowingStatus {
             }
         }
 
-        public boolean equals (Location otherLocation) {
-            return Objects.equals(this.toString(), otherLocation.toString());
-        }
     }
 
