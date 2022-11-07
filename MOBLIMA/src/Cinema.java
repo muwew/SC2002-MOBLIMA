@@ -16,7 +16,7 @@ public class Cinema implements Serializable {
 
     // Constructor
     public Cinema () {
-        this(null, null, null, -1);
+        this(CinemaClass.NORMAL, null, Location.WEST_MALL, -1);
         this.cineplex = new Cineplex();
     }
 
@@ -82,14 +82,20 @@ public class Cinema implements Serializable {
 
         int choice = sc.nextInt();
 
-        if(choice == 1)
+        if(choice == 1) {
             this.cinemaClass = CinemaClass.NORMAL;
-        else
+            this.noOfRows = 10;
+            this.noOfCols = 12;
+        }
+        else {
             this.cinemaClass = CinemaClass.PLATINUM;
+            this.noOfRows = 5;
+            this.noOfCols = 8;
+        }
     }
 
-    public String getLocation() {
-        return location.toString();
+    public Location getLocation() {
+        return location;
     }
 
     public void setLocation() {

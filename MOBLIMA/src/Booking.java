@@ -2,6 +2,7 @@ package MOBLIMA.src;
 
 import java.io.Serializable;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -16,7 +17,7 @@ public class Booking implements Serializable {
     private float totalPrice;
     private MovieSlot movieSlotBooked;
     private String transactionID;
-    private Cinema cinema;
+    //private Cinema cinema;
 
     // Constructors
     public Booking(MovieGoer movieGoer, int numberOfSeatsBooked, ArrayList<Seat> seatsBooked, int numberOfTicketsPurchased, ArrayList<Ticket> ticketsPurchased, MovieSlot movieSlotBooked, float totalPrice, String transactionID, Cinema cinema) {
@@ -29,7 +30,7 @@ public class Booking implements Serializable {
         this.totalPrice = totalPrice;
         this.movieSlotBooked = movieSlotBooked;
         this.transactionID = transactionID;
-        this.cinema = cinema;
+        //this.cinema = cinema;
     }
 
     public Booking(MovieGoer movieGoer, MovieSlot movieSlotBooked) {
@@ -42,7 +43,7 @@ public class Booking implements Serializable {
         this.totalPrice = 0;
         this.movieSlotBooked = movieSlotBooked;
         this.transactionID = null;
-        this.cinema = movieSlotBooked.getCinema();
+        //this.cinema = movieSlotBooked.getCinema();
     }
 
     public Booking(MovieSlot movieSlotBooked){
@@ -55,7 +56,7 @@ public class Booking implements Serializable {
         this.totalPrice = 0;
         this.movieSlotBooked = movieSlotBooked;
         this.transactionID = null;
-        this.cinema = movieSlotBooked.getCinema();
+        //this.cinema = movieSlotBooked.getCinema();
     }
 
     // Getters and setters
@@ -135,13 +136,13 @@ public class Booking implements Serializable {
         this.transactionID = transactionID;
     }
 
-    public Cinema getCinema() {
+    /*public Cinema getCinema() {
         return cinema;
     }
 
     public void setCinema(Cinema cinema) {
         this.cinema = cinema;
-    }
+    }*/
 
     // Other methods
     public void addTicket (Ticket ticket) {
@@ -154,14 +155,14 @@ public class Booking implements Serializable {
         System.out.println("Ticket has been removed!");
     }
 
-    public void start () {
-        Scanner sc = new Scanner(System.in);
-
-        int rows = 10;
-        int cols = 12;
-        String[][] seatLayout = this.cinema.seatLayoutCreation(rows, cols);
-
-    }
+//    public void start () {
+//        Scanner sc = new Scanner(System.in);
+//
+//        int rows = 10;
+//        int cols = 12;
+//        String[][] seatLayout = this.cinema.seatLayoutCreation(rows, cols);
+//
+//    }
 
     public void book (MovieSlot movieSlot, ArrayList<PublicHoliday> phList, ArrayList<TicketDetails> ticketDetailsDB) {
 
@@ -169,8 +170,9 @@ public class Booking implements Serializable {
         System.out.println("How many seats would you like to book?");
         int numberOfSeatsToBook = sc.nextInt();
 
+        String[][] cinemaSeatLayout = new String[1][1];
+
         // Go through each seat booked
-        for (int i = 0; i < numberOfSeatsToBook; i++) {
             // Creating ticket details object
             TicketDetails newTicketDetails = new TicketDetails();
 
@@ -178,14 +180,25 @@ public class Booking implements Serializable {
             newTicketDetails.setMovieType(movieSlot.getMovieType());
 
             // Getting cinema class
-            newTicketDetails.setCinemaClass(this.cinema.getCinemaClass());
+            newTicketDetails.setCinemaClass(this.movieSlotBooked.getCinema().getCinemaClass());
 
             // Seat choosing process
-            String[][] cinemaSeatLayout = this.cinema.seatLayoutCreation(this.cinema.getNoOfRows(), this.cinema.getNoOfCols());
-            seatSelection(cinemaSeatLayout, this.cinema.getNoOfRows(), this.cinema.getNoOfCols(), numberOfSeatsToBook);
+            int j=0;
+
+            do {
+                if (this.movieSlotBooked.getCinema().getSeatLayout() == null) {
+                    cinemaSeatLayout = this.movieSlotBooked.getCinema().seatLayoutCreation(this.movieSlotBooked.getCinema().getNoOfRows(), this.movieSlotBooked.getCinema().getNoOfCols());
+                    this.movieSlotBooked.getCinema().setStringSeatLayout(cinemaSeatLayout);
+                }//seatSelection(cinemaSeatLayout, this.movieSlotBooked.getCinema().getNoOfRows(), this.movieSlotBooked.getCinema().getNoOfCols(), numberOfSeatsToBook);
+                j = seatSelection(this.movieSlotBooked.getCinema().getStringSeatLayout(), this.movieSlotBooked.getCinema().getNoOfRows(), this.movieSlotBooked.getCinema().getNoOfCols(), numberOfSeatsToBook);
+            }while(j==0);
+
+            if(j==2) return;
 
             // Getting seat type
-            Seat currentSeat = this.seatsBooked.get(i);
+            for(int i=0; i<numberOfSeatsToBook; i++)
+            {
+                Seat currentSeat = this.seatsBooked.get(i);
             newTicketDetails.setSeatType(currentSeat.getSeatType());
 
             // Getting age bracket from moviegoer
@@ -193,7 +206,7 @@ public class Booking implements Serializable {
 
             do {
                 System.out.println("For seat " + currentSeat.getSeatID() + ", what type of ticket would you like to purchase?");
-                System.out.println("1) Child\n2) Student\n3) Adult\n4) Senior Citizen\n");
+                System.out.println("1) Child\n2) Student\n3) Adult\n4) Senior Citizen");
                 choice = sc.nextInt();
 
                 switch (choice) {
@@ -232,17 +245,17 @@ public class Booking implements Serializable {
                 int dayOfWeek = timeSlot.get(Calendar.DAY_OF_WEEK);
 
                 switch (dayOfWeek) {
+                    case 1:
                     case 2:
                     case 3:
-                    case 4:
                         newTicketDetails.setTicketType(TicketType.MON_TO_WED);
                         break;
 
-                    case 5:
+                    case 4:
                         newTicketDetails.setTicketType(TicketType.THURS);
                         break;
 
-                    case 6:
+                    case 5:
                         int hours = timeSlot.get(Calendar.HOUR_OF_DAY);
                         if (hours <= 3 || hours >= 18) {
                             newTicketDetails.setTicketType(TicketType.FRI_AFTER_6PM);
@@ -252,7 +265,7 @@ public class Booking implements Serializable {
 
                         break;
 
-                    case 1:
+                    case 6:
                     case 7:
                         newTicketDetails.setTicketType(TicketType.WEEKENDS_AND_PH);
                         break;
@@ -276,16 +289,42 @@ public class Booking implements Serializable {
             this.totalPrice += currentTicketPrice;
         }
 
-        // Displaying the total price of the booking
-        System.out.println("Total price of this transaction is: " + this.totalPrice);
-        System.out.println("Enjoy your movie!");
+        if(movieGoer == null) {
+            System.out.println("To complete your booking, please");
+            System.out.println("Enter your name: ");
+            sc.nextLine();
+            String name = sc.nextLine();
+            System.out.println("Enter your mobile number");
+            int phoneNo = sc.nextInt();
+            System.out.println("Enter your email address");
+            sc.nextLine();
+            String email = sc.nextLine();
+        }
 
         // Creating the transaction ID
         DateFormat dateFormat = new SimpleDateFormat("yyyyMMddhhmm");
         Calendar currentTime = Calendar.getInstance();
         String currentTimeFormatted = dateFormat.format(currentTime.getTime());
-        this.transactionID = this.cinema.getCinemaCode() + currentTimeFormatted;
+        this.transactionID = this.movieSlotBooked.getCinema().getCinemaCode() + currentTimeFormatted;
         System.out.println("This is your transaction ID for your booking: "+ transactionID+ "\nThank you!");
+
+        // Displaying the total price of the booking
+        DecimalFormat df = new DecimalFormat("###.##");
+        System.out.printf("Total price of this transaction is: " + df.format(this.totalPrice));
+        System.out.println("\nWould you like to view the ticket details?");
+        System.out.println("1) Yes");
+        System.out.println("2) No");
+        int choice = sc.nextInt();
+        int i =1;
+
+        if(choice == 1){
+            for(Ticket e: this.ticketsPurchased){
+                System.out.println("Ticket" + "("+ i++ +"):");
+                e.printTicketDetails();
+            }
+        }
+
+        System.out.println("Enjoy your movie!");
     }
 
     public void cancelBooking () {
@@ -329,7 +368,7 @@ public class Booking implements Serializable {
         System.out.println("--------------------------------------------------------------");
         System.out.println("Transaction ID: " + this.transactionID);
         System.out.println("Name: " + this.movieGoer.getName());
-        System.out.println("Cineplex: " + this.cinema.getCineplex().getLocation().toString());
+        System.out.println("Cineplex: " + this.movieSlotBooked.getCinema().getCineplex().getLocation().toString());
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm");
         System.out.println(dateFormat.format(this.timeslot));
         System.out.println("\tNumber of seats booked: " + this.numberOfSeatsBooked);
@@ -344,10 +383,10 @@ public class Booking implements Serializable {
         System.out.println("--------------------------------------------------------------");
     }
 
-    public void seatSelection (String[][] seatLayout, int rows, int cols, int numberOfSeatsToBook) {
+    public int seatSelection (String[][] seatLayout, int rows, int cols, int numberOfSeatsToBook) {
 
         // Print out the seat layout for movie goer to see
-        this.cinema.seatsPrinting(seatLayout, rows, cols);
+        this.movieSlotBooked.getCinema().seatsPrinting(seatLayout, rows, cols);
         Scanner sc = new Scanner(System.in);
 
         // Prompting user on number of seats wanted
@@ -360,8 +399,11 @@ public class Booking implements Serializable {
 
         for (int i = 0; i < numberOfSeats; i++) {
             // Prompting user for seat selection
-            System.out.println("For seat " + (i + 1) + ", which seat would you like to select? ");
+            System.out.println("For seat " + (i + 1) + ", which seat would you like to select? (type 0 to quit)");
             String seatSelection = sc.next();
+
+            if(seatSelection.equals("0"))
+                return 2;
 
             // Processing the seat ID and decomposing it into row char and col number
             int rowNo = seatSelection.charAt(0) - 65;
@@ -376,7 +418,7 @@ public class Booking implements Serializable {
             }
 
             // Checking whether the current chosen seat is occupied
-            if (this.cinema.getSeatLayout()[rowNo][colNo].isSeatSelected() || this.cinema.getSeatLayout()[rowNo][colNo].isSeatOccupied()) {
+            if (this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].isSeatSelected() || this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].isSeatOccupied()) {
                 System.out.println("This seat is currently selected or occupied!");
                 i--;
             }
@@ -385,7 +427,7 @@ public class Booking implements Serializable {
             else {
 
                 // If booking for normal cinema
-                if (this.cinema.getCinemaClass() == CinemaClass.NORMAL) {
+                if (this.movieSlotBooked.getCinema().getCinemaClass() == CinemaClass.NORMAL) {
 
                     // If seat chosen is a couple seat
                     if (rowNo > rows - 2) {
@@ -393,16 +435,16 @@ public class Booking implements Serializable {
 
                         // Updating the seat layout for the seats to be selected
                         // Selecting the current chosen seat
-                        this.cinema.getSeatLayout()[rowNo][colNo].selectSeat();
-                        currentSeatsSelected.add(this.cinema.getSeatLayout()[rowNo][colNo]);
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].selectSeat();
+                        currentSeatsSelected.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo]);
 
                         // Selecting the seat next to the currently selected seat
                         if (colNo % 2 == 0) {
-                            this.cinema.getSeatLayout()[rowNo][colNo + 1].selectSeat();
-                            currentSeatsSelected.add(this.cinema.getSeatLayout()[rowNo][colNo + 1]);
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo + 1].selectSeat();
+                            currentSeatsSelected.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo + 1]);
                         } else {
-                            this.cinema.getSeatLayout()[rowNo][colNo - 1].selectSeat();
-                            currentSeatsSelected.add(this.cinema.getSeatLayout()[rowNo][colNo - 1]);
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo - 1].selectSeat();
+                            currentSeatsSelected.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo - 1]);
                         }
 
                         // Printing out the seat layout to display selected seats
@@ -412,7 +454,7 @@ public class Booking implements Serializable {
                         } else {
                             seatLayout[rowNo][colNo - 1] = seatLayout[rowNo][colNo - 1].replace('_', 'S');
                         }
-                        this.cinema.seatsPrinting(seatLayout, rows, cols);
+                        this.movieSlotBooked.getCinema().seatsPrinting(seatLayout, rows, cols);
                         System.out.println();
                     }
 
@@ -422,18 +464,18 @@ public class Booking implements Serializable {
 
                         // Updating the seat layout for the seats to be selected
                         // Selecting the current chosen seat
-                        this.cinema.getSeatLayout()[rowNo][colNo].selectSeat();
-                        currentSeatsSelected.add(this.cinema.getSeatLayout()[rowNo][colNo]);
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].selectSeat();
+                        currentSeatsSelected.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo]);
 
                         // Printing out the seat layout to display selected seats
                         seatLayout[rowNo][colNo] = seatLayout[rowNo][colNo].replace('_', 'S');
-                        this.cinema.seatsPrinting(seatLayout, rows, cols);
+                        this.movieSlotBooked.getCinema().seatsPrinting(seatLayout, rows, cols);
                         System.out.println();
                     }
                 }
 
                 // Else if the cinema is a platinum suite
-                else if (this.cinema.getCinemaClass() == CinemaClass.PLATINUM) {
+                else if (this.movieSlotBooked.getCinema().getCinemaClass() == CinemaClass.PLATINUM) {
 
                     // If seat chosen is an ultima (couple) seat
                     if (rowNo > rows - 2) {
@@ -441,16 +483,16 @@ public class Booking implements Serializable {
 
                         // Updating the seat layout for the seats to be selected
                         // Selecting the current chosen seat
-                        this.cinema.getSeatLayout()[rowNo][colNo].selectSeat();
-                        currentSeatsSelected.add(this.cinema.getSeatLayout()[rowNo][colNo]);
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].selectSeat();
+                        currentSeatsSelected.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo]);
 
                         // Selecting the seat next to the currently selected seat
                         if (colNo % 2 == 0) {
-                            this.cinema.getSeatLayout()[rowNo][colNo + 1].selectSeat();
-                            currentSeatsSelected.add(this.cinema.getSeatLayout()[rowNo][colNo + 1]);
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo + 1].selectSeat();
+                            currentSeatsSelected.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo + 1]);
                         } else {
-                            this.cinema.getSeatLayout()[rowNo][colNo - 1].selectSeat();
-                            currentSeatsSelected.add(this.cinema.getSeatLayout()[rowNo][colNo - 1]);
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo - 1].selectSeat();
+                            currentSeatsSelected.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo - 1]);
                         }
 
                         // Printing out the seat layout to display selected seats
@@ -460,7 +502,7 @@ public class Booking implements Serializable {
                         } else {
                             seatLayout[rowNo][colNo - 1] = seatLayout[rowNo][colNo - 1].replace('_', 'S');
                         }
-                        this.cinema.seatsPrinting(seatLayout, rows, cols);
+                        this.movieSlotBooked.getCinema().seatsPrinting(seatLayout, rows, cols);
                         System.out.println();
                     }
 
@@ -470,12 +512,12 @@ public class Booking implements Serializable {
 
                         // Updating the seat layout for the seats to be selected
                         // Selecting the current chosen seat
-                        this.cinema.getSeatLayout()[rowNo][colNo].selectSeat();
-                        currentSeatsSelected.add(this.cinema.getSeatLayout()[rowNo][colNo]);
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].selectSeat();
+                        currentSeatsSelected.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo]);
 
                         // Printing out the seat layout to display selected seats
                         seatLayout[rowNo][colNo] = seatLayout[rowNo][colNo].replace('E', 'S');
-                        this.cinema.seatsPrinting(seatLayout, rows, cols);
+                        this.movieSlotBooked.getCinema().seatsPrinting(seatLayout, rows, cols);
                         System.out.println();
                     }
                 }
@@ -506,8 +548,12 @@ public class Booking implements Serializable {
 
         //String[][] updatedSeatLayout = seatPurchased(seatLayout, rows, cols, seatSelection);
         //this.cinema.setStringSeatLayout(updatedSeatLayout);
-        this.cinema.seatsPrinting(updatedSeatLayout, rows, cols);
-        this.cinema.setStringSeatLayout(updatedSeatLayout);
+        this.movieSlotBooked.getCinema().seatsPrinting(updatedSeatLayout, rows, cols);
+        this.movieSlotBooked.getCinema().setStringSeatLayout(updatedSeatLayout);
+
+        if(confirmation == 1) return 1;
+
+        return 0;
     }
 
     public String[][] seatPurchased (String[][] seatLayout, int rows, int cols, String seatSelection, int confirmation) {
@@ -530,7 +576,7 @@ public class Booking implements Serializable {
             // Purchase confirmed
             case 1:
                 // Cinema is normal class
-                if (this.cinema.getCinemaClass() == CinemaClass.NORMAL) {
+                if (this.movieSlotBooked.getCinema().getCinemaClass() == CinemaClass.NORMAL) {
 
                     // Purchased a couples seat
                     if (rowNo > rows - 2) {
@@ -541,22 +587,22 @@ public class Booking implements Serializable {
 
                         // Updating the seat layout for the seats to be selected
                         // Purchasing the current chosen seat
-                        this.cinema.getSeatLayout()[rowNo][colNo].deSelectSeat();
-                        this.cinema.getSeatLayout()[rowNo][colNo].occupySeat();
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].deSelectSeat();
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].occupySeat();
                         System.out.println();
-                        this.seatsBooked.add(this.cinema.getSeatLayout()[rowNo][colNo]);
+                        this.seatsBooked.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo]);
 
                         // Purchasing the seat next to the currently selected seat
                         if (colNo % 2 == 0) {
-                            this.cinema.getSeatLayout()[rowNo][colNo + 1].deSelectSeat();
-                            this.cinema.getSeatLayout()[rowNo][colNo + 1].occupySeat();
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo + 1].deSelectSeat();
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo + 1].occupySeat();
                             System.out.println();
-                            this.seatsBooked.add(this.cinema.getSeatLayout()[rowNo][colNo + 1]);
+                            this.seatsBooked.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo + 1]);
                         } else {
-                            this.cinema.getSeatLayout()[rowNo][colNo - 1].deSelectSeat();
-                            this.cinema.getSeatLayout()[rowNo][colNo - 1].occupySeat();
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo - 1].deSelectSeat();
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo - 1].occupySeat();
                             System.out.println();
-                            this.seatsBooked.add(this.cinema.getSeatLayout()[rowNo][colNo - 1]);
+                            this.seatsBooked.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo - 1]);
                         }
 
                         // Printing out the seat layout to display purchased seats
@@ -579,10 +625,10 @@ public class Booking implements Serializable {
 
                         // Updating the seat layout for the seat to be selected
                         // Purchasing the current chosen seat
-                        this.cinema.getSeatLayout()[rowNo][colNo].deSelectSeat();
-                        this.cinema.getSeatLayout()[rowNo][colNo].occupySeat();
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].deSelectSeat();
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].occupySeat();
                         System.out.println();
-                        this.seatsBooked.add(this.cinema.getSeatLayout()[rowNo][colNo]);
+                        this.seatsBooked.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo]);
 
                         // Printing out the seat layout to display purchased seats
                         seatLayout[rowNo][colNo] = seatLayout[rowNo][colNo].replace('S', 'X');
@@ -592,7 +638,7 @@ public class Booking implements Serializable {
                 }
 
                 // Cinema is platinum suites
-                else if (this.cinema.getCinemaClass() == CinemaClass.PLATINUM){
+                else if (this.movieSlotBooked.getCinema().getCinemaClass() == CinemaClass.PLATINUM){
                     // Purchased an ultima (couples) seat
                     if (rowNo > rows - 2) {
                         System.out.println("You have purchased an ultima seat. Hence, the seat beside the selected seat will automatically be purchased as well. Thank you for your purchase!");
@@ -602,22 +648,22 @@ public class Booking implements Serializable {
 
                         // Updating the seat layout for the seats to be selected
                         // Purchasing the current chosen seat
-                        this.cinema.getSeatLayout()[rowNo][colNo].deSelectSeat();
-                        this.cinema.getSeatLayout()[rowNo][colNo].occupySeat();
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].deSelectSeat();
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].occupySeat();
                         System.out.println();
-                        this.seatsBooked.add(this.cinema.getSeatLayout()[rowNo][colNo]);
+                        this.seatsBooked.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo]);
 
                         // Purchasing the seat next to the currently selected seat
                         if (colNo % 2 == 0) {
-                            this.cinema.getSeatLayout()[rowNo][colNo + 1].deSelectSeat();
-                            this.cinema.getSeatLayout()[rowNo][colNo + 1].occupySeat();
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo + 1].deSelectSeat();
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo + 1].occupySeat();
                             System.out.println();
-                            this.seatsBooked.add(this.cinema.getSeatLayout()[rowNo][colNo + 1]);
+                            this.seatsBooked.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo + 1]);
                         } else {
-                            this.cinema.getSeatLayout()[rowNo][colNo - 1].deSelectSeat();
-                            this.cinema.getSeatLayout()[rowNo][colNo - 1].occupySeat();
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo - 1].deSelectSeat();
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo - 1].occupySeat();
                             System.out.println();
-                            this.seatsBooked.add(this.cinema.getSeatLayout()[rowNo][colNo - 1]);
+                            this.seatsBooked.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo - 1]);
                         }
 
                         // Printing out the seat layout to display purchased seats
@@ -636,14 +682,14 @@ public class Booking implements Serializable {
                         System.out.println("You have purchased an elite seat.");
 
                         // Updating the number of seats booked in this booking
-                        this.numberOfSeatsBooked += 2;
+                        this.numberOfSeatsBooked++;
 
                         // Updating the seat layout for the seat to be selected
                         // Selecting the current chosen seat
-                        this.cinema.getSeatLayout()[rowNo][colNo].deSelectSeat();
-                        this.cinema.getSeatLayout()[rowNo][colNo].occupySeat();
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].deSelectSeat();
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].occupySeat();
                         System.out.println();
-                        this.seatsBooked.add(this.cinema.getSeatLayout()[rowNo][colNo]);
+                        this.seatsBooked.add(this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo]);
 
                         // Printing out the seat layout to display purchased seats
                         seatLayout[rowNo][colNo] = seatLayout[rowNo][colNo].replace('S', 'X');
@@ -658,7 +704,7 @@ public class Booking implements Serializable {
                 System.out.println("Purchase has been cancelled.");
 
                 // Cinema is normal class
-                if (this.cinema.getCinemaClass() == CinemaClass.NORMAL) {
+                if (this.movieSlotBooked.getCinema().getCinemaClass() == CinemaClass.NORMAL) {
 
                     // Cancel a couples seat
                     if (rowNo > rows - 2) {
@@ -666,13 +712,13 @@ public class Booking implements Serializable {
 
                         // Updating the seat layout for the seats to be cancelled
                         // Cancelling the current chosen seat
-                        this.cinema.getSeatLayout()[rowNo][colNo].deSelectSeat();
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].deSelectSeat();
 
                         // Cancelling the seat next to the current seat
                         if (colNo % 2 == 0) {
-                            this.cinema.getSeatLayout()[rowNo][colNo + 1].deSelectSeat();
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo + 1].deSelectSeat();
                         } else {
-                            this.cinema.getSeatLayout()[rowNo][colNo - 1].deSelectSeat();
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo - 1].deSelectSeat();
                         }
 
                         // Printing out the updated seat layout
@@ -692,7 +738,7 @@ public class Booking implements Serializable {
 
                         // Updating the seat layout for the seat to be cancelled
                         // Cancelling the current chosen seat
-                        this.cinema.getSeatLayout()[rowNo][colNo].deSelectSeat();
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].deSelectSeat();
 
                         // Printing out the updated seat layout
                         seatLayout[rowNo][colNo] = seatLayout[rowNo][colNo].replace('S', '_');
@@ -702,7 +748,7 @@ public class Booking implements Serializable {
                 }
 
                 // Cinema is platinum suites
-                else if (this.cinema.getCinemaClass() == CinemaClass.PLATINUM){
+                else if (this.movieSlotBooked.getCinema().getCinemaClass() == CinemaClass.PLATINUM){
 
                     // Cancelling an ultima (couples) seat
                     if (rowNo > rows - 2) {
@@ -710,13 +756,13 @@ public class Booking implements Serializable {
 
                         // Updating the seat layout for the seats to be cancelled
                         // Cancelling the current chosen seat
-                        this.cinema.getSeatLayout()[rowNo][colNo].deSelectSeat();
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].deSelectSeat();
 
                         // Cancelling the seat next to the current seat
                         if (colNo % 2 == 0) {
-                            this.cinema.getSeatLayout()[rowNo][colNo + 1].deSelectSeat();
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo + 1].deSelectSeat();
                         } else {
-                            this.cinema.getSeatLayout()[rowNo][colNo - 1].deSelectSeat();
+                            this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo - 1].deSelectSeat();
                         }
 
                         // Printing out the updated seat layout
@@ -736,7 +782,7 @@ public class Booking implements Serializable {
 
                         // Updating the seat layout for the seat to be cancelled
                         // Cancelling the currently chosen seat
-                        this.cinema.getSeatLayout()[rowNo][colNo].deSelectSeat();
+                        this.movieSlotBooked.getCinema().getSeatLayout()[rowNo][colNo].deSelectSeat();
 
                         // Printing out the updated seat layout
                         seatLayout[rowNo][colNo] = seatLayout[rowNo][colNo].replace('S', 'E');
@@ -751,6 +797,8 @@ public class Booking implements Serializable {
                 System.out.println("Invalid option! Please try again!");
         }
 
+        //this.movieSlotBooked.setCinema(this.movieSlotBooked.getCinema());
+        
         return seatLayout;
     }
 }

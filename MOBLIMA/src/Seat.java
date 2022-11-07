@@ -1,6 +1,8 @@
 package MOBLIMA.src;
 
-public class Seat {
+import java.io.Serializable;
+
+public class Seat implements Serializable {
 
     // Attributes
     private String seatID;

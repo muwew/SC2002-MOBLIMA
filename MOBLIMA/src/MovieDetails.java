@@ -12,6 +12,8 @@ public class MovieDetails implements Serializable {
     private int runtime;
     private String openingDate;
     private double rating;
+    private ArrayList<Review> reviews;
+
 
     //constructor
     public MovieDetails(){
@@ -23,8 +25,9 @@ public class MovieDetails implements Serializable {
         this.runtime = -1;
         this.openingDate = "";
         this.rating = -1;
+        reviews = new ArrayList<>();
     }
-    public MovieDetails(ArrayList<String> cast, String director, String synopsis, String language, Rated movieRated, int runtime, String openingDate, double rating){
+    public MovieDetails(ArrayList<String> cast, String director, String synopsis, String language, Rated movieRated, int runtime, String openingDate, double rating, ArrayList<Review> reviews){
         this.cast = cast;
         this.director = director;
         this.sypnosis = synopsis;
@@ -33,6 +36,7 @@ public class MovieDetails implements Serializable {
         this.runtime = runtime;
         this.openingDate = openingDate;
         this.rating = rating;
+        this.reviews = reviews;
     }
 
     //getters and setters
@@ -118,10 +122,30 @@ public class MovieDetails implements Serializable {
         return rating;
     }
 
+    public void setMovieRated(Rated movieRated) {
+        this.movieRated = movieRated;
+    }
+
+    public ArrayList<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(ArrayList<Review> reviews) {
+        this.reviews = reviews;
+    }
+
     public void setRating(double rating) {
         this.rating = rating;
     }
 
+    public void updateRating(){
+        double rating=0;
+        for(Review e: reviews){
+            rating += e.getRating();
+        }
+
+        this.rating = rating / reviews.size();
+    }
     public void printMovieDetails(){
         System.out.print("Cast: ");
         for(String castMember : cast){

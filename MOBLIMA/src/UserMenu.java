@@ -27,6 +27,7 @@ public class UserMenu extends Menu{
         System.out.println("1) View movies");
         System.out.println("2) View booking history");
         System.out.println("3) Member login");
+        System.out.println("4) New Account Signup");
         System.out.println("0) Back");
         System.out.println("================================================");
 
@@ -39,14 +40,18 @@ public class UserMenu extends Menu{
             case 2:
                 if(loggedIn) {
                     //send it to booking part
+                    viewBookingHistory();
                 }
                 else{
                     System.out.println("You are not logged in!");
                 }
-                System.out.println("nid 2 implement ;-0");
                 break;
             case 3:
                 userLogin();
+                break;
+            case 4:
+                userSignUp();
+                userList = (ArrayList<MovieGoer>) readData("useraccounts.txt");
                 break;
             case 0:
                 exit = true;
@@ -59,6 +64,56 @@ public class UserMenu extends Menu{
             open(this, this.prevMenu);
         }
         else userOptions();
+    }
+    protected void userSignUp(){
+        System.out.println("Enter new username: ");
+        String username = sc.next();
+        System.out.println("Enter new password: ");
+        String password = sc.next();
+        System.out.println("Enter age: ");
+        int age = sc.nextInt();
+        System.out.println("Enter email address: ");
+        String emailAddress = sc.next();
+        System.out.println("Enter mobile number: ");
+        int mobileNumber = sc.nextInt();
+
+        // Create new MovieGoer instance
+        MovieGoer guest = new MovieGoer(username, username, mobileNumber ,emailAddress, password, new ArrayList<>(), age);
+
+        // Update accounts.txt
+        ArrayList<MovieGoer> movieGoerList = (ArrayList<MovieGoer>) readData("useraccounts.txt");
+        movieGoerList.add(guest);
+        updateData(movieGoerList, "useraccounts.txt");
+        System.out.println("Successfully signed up!");
+    }
+
+    protected void viewBookingHistory(){
+        int i = 1;
+        System.out.println(user.getUsername() + "'s booking history:");
+        for(Booking e: user.getBookingHistory()){
+            System.out.println(i++ + ") Transaction ID: " + e.getTransactionID());
+        }
+        System.out.println("0) Back");
+        System.out.println("Which transaction would you like to view:");
+
+        int choice = sc.nextInt();
+
+        if(choice != 0 && choice <= user.getBookingHistory().size()){
+            Booking booking = user.getBookingHistory().get(choice-1);
+            System.out.println("Transaction ID: " + booking.getTransactionID());
+            System.out.println("Movie Title: " + booking.getMovieSlotBooked().getMovie().getMovieTitle());
+            if(booking.getTimeslot().get(Calendar.MINUTE) == 0)
+                System.out.println("Date of movie: " + booking.getTimeslot().get(Calendar.DAY_OF_MONTH) +"/" + booking.getTimeslot().get(Calendar.MONTH)
+                    +"; "+ booking.getTimeslot().get(Calendar.HOUR_OF_DAY) +":"+ booking.getTimeslot().get(Calendar.MINUTE) + "0");
+            else
+                System.out.println("Date of movie: " + booking.getTimeslot().get(Calendar.DAY_OF_MONTH) +"/" + booking.getTimeslot().get(Calendar.MONTH)
+                                +"; "+ booking.getTimeslot().get(Calendar.HOUR_OF_DAY) +":"+ booking.getTimeslot().get(Calendar.MINUTE));
+            System.out.println("Number of seats booked: "+ booking.getNumberOfSeatsBooked());
+            System.out.printf("Total price: %.2f",booking.getTotalPrice());
+            System.out.println();
+        }
+
+        return;
     }
 
     protected void viewMovieOptions(){
@@ -146,9 +201,49 @@ public class UserMenu extends Menu{
                 break;
             case 3:
                 //send it into reviewmenu
+                reviewMenu(movieToView);
+                break;
             default:
                 viewMovieOptions();
         }
+    }
+
+    protected void reviewMenu(Movie movie){
+        System.out.println("1) View reviews");
+        System.out.println("2) Add review");
+        System.out.println("0) Back");
+
+        int choice = sc.nextInt();
+
+        if(choice == 1){
+            System.out.println("All reviews: ");
+
+            for(Review e: movie.getMovieDetails().getReviews()){
+                System.out.println(e.getUser() + ": Rating: " + String.format("%.2f", e.getRating()));
+                System.out.println(e.getComment());
+            }
+        }
+        else if(choice == 2){
+            rateReviewMovie(movie);
+        }
+    }
+    protected void rateReviewMovie(Movie movie){
+
+        System.out.println("Enter your rating: ");
+        Double rating = sc.nextDouble();
+        System.out.println("Enter your review: ");
+        sc.nextLine();
+        String comment = sc.nextLine();
+
+        Review review = new Review(userName ,rating, comment);
+
+        ArrayList<Review> reviewList = movie.getMovieDetails().getReviews();
+        reviewList.add(review);
+        movie.getMovieDetails().setReviews(reviewList);
+
+        movie.getMovieDetails().updateRating();
+        System.out.println("Thank you for your input!");
+        updateData(movieList, "movielist.txt");
     }
 
     protected void viewMovieSlots(ArrayList<MovieSlot> movieSlots){
@@ -157,9 +252,9 @@ public class UserMenu extends Menu{
         ArrayList<MovieSlot> JPSlots = new ArrayList<>();
         ArrayList<MovieSlot> WMSlots = new ArrayList<>();
         for (MovieSlot e : movieSlots) {
-            if (e.getCinema().getLocation().equals("JEM")) {
+            if (e.getCinema().getLocation().toString().equals("JEM")) {
                 JEMSlots.add(e);
-            } else if (e.getCinema().getLocation().equals("JURONG_POINT")) {
+            } else if (e.getCinema().getLocation().toString().equals("JURONG_POINT")) {
                 JPSlots.add(e);
             } else {
                 WMSlots.add(e);
@@ -214,6 +309,8 @@ public class UserMenu extends Menu{
                 BookingMenu bookingMenu = new BookingMenu(booking, movieList, userList);
                 open(this, bookingMenu);
             }
+            movieList = (ArrayList<Movie>) readData("movielist.txt");
+            userList = (ArrayList<MovieGoer>) readData("useraccounts.txt");
         }
         else if(index == 0)
             return;

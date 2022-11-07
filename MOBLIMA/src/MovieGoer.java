@@ -10,18 +10,18 @@ public class MovieGoer extends Account implements Serializable {
     private Integer mobileNumber;
     private String emailAddress;
     private Integer age;
-    private AgeBracket ageBracket;
+    //private AgeBracket ageBracket;
     private ArrayList<Booking> bookingHistory;
 
 
-    public MovieGoer(String username, String name, Integer mobileNumber, String emailAddress, String password, ArrayList<Booking> bookingHistory, AgeBracket ageBracket, Integer age) {
+    public MovieGoer(String username, String name, Integer mobileNumber, String emailAddress, String password, ArrayList<Booking> bookingHistory, Integer age) {
         super(username, password);
         this.name = name;
         this.mobileNumber = mobileNumber;
         this.emailAddress = emailAddress;
         this.bookingHistory = bookingHistory;
         this.age = age;
-        this.ageBracket = ageBracket;
+        //this.ageBracket = ageBracket;
     }
 
 
@@ -65,12 +65,12 @@ public class MovieGoer extends Account implements Serializable {
         this.bookingHistory = bookingHistory;
     }
 
-    public AgeBracket getAgeBracket() {
-        return ageBracket;
-    }
-
-    public void setAgeBracket(AgeBracket ageBracket) {
-        this.ageBracket = ageBracket;
-    }
+//    public AgeBracket getAgeBracket() {
+//        return ageBracket;
+//    }
+//
+//    public void setAgeBracket(AgeBracket ageBracket) {
+//        this.ageBracket = ageBracket;
+//    }
 
 }

@@ -132,7 +132,7 @@ public class AdminMenu extends Menu {
             System.out.println("Which movie's " + options[choice - 1] + " would you like to update?");
             int index = sc.nextInt();
 
-            if (index != 0 && index < movieList.size()) {
+            if (index != 0 && index <= movieList.size()) {
                 switch (choice) {
                     case 1:
                         updateMovieShowingStatus(movieList.get(index - 1));
@@ -201,6 +201,7 @@ public class AdminMenu extends Menu {
             System.out.println("Enter cinema number (1-3):");
             int cinemaNo = sc.nextInt();
             cinema.setCinemaNo(cinemaNo);
+            cinema.setCinemaCode(cinema.getLocation().toCode() + cinemaNo);
             MovieSlot movieslot = new MovieSlot(m, d, h, min, cinema, movie);
             movieslot.setMovieType();
 

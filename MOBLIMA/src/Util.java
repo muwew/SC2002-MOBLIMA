@@ -26,7 +26,7 @@ public class Util {
             String newString = str.substring(0, cutOff);
 
             sb.append(newString);
-            sb.append("\n");
+            sb.append("\n\t\t");
             str = str.substring(cutOff);
         }
 

@@ -704,10 +704,10 @@ public class TicketDetails implements Serializable {
         // Getting cinema class
         if (cinemaClass == CinemaClass.NORMAL) {
             ticketDetails.setCinemaClass(CinemaClass.NORMAL);
-            basePrice = 28f;
+            basePrice = 8.5f;
         } else if (cinemaClass == CinemaClass.PLATINUM) {
             ticketDetails.setCinemaClass(CinemaClass.PLATINUM);
-            basePrice = 8.5f;
+            basePrice = 28f;
         } else {
             System.out.println("Invalid choice! Please try again!");
         }
@@ -780,6 +780,7 @@ public class TicketDetails implements Serializable {
 
             else if (seatType == SeatType.COUPLE_SEAT) {
                 ticketDetails.setSeatType(SeatType.COUPLE_SEAT);
+                basePrice*=2;
             }
 
             else {
@@ -789,7 +790,7 @@ public class TicketDetails implements Serializable {
             // Getting age bracket
             if (ageBracket == AgeBracket.STUDENT) {
                 ticketDetails.setAgeBracket(AgeBracket.STUDENT);
-                basePrice *= 0.3f;
+                basePrice *= 0.7f;
             }
 
             else if (ageBracket == AgeBracket.CHILD) {
@@ -803,7 +804,7 @@ public class TicketDetails implements Serializable {
 
             else if (ageBracket == AgeBracket.SENIOR_CTZ) {
                 ticketDetails.setAgeBracket(AgeBracket.SENIOR_CTZ);
-                basePrice *= 0.6f;
+                basePrice *= 0.4f;
             }
 
             else {
@@ -852,7 +853,7 @@ public class TicketDetails implements Serializable {
 
             else if (seatType == SeatType.ULTIMA_SEAT) {
                 ticketDetails.setSeatType(SeatType.ULTIMA_SEAT);
-                basePrice += 10.0f;
+                basePrice *=2;
             }
 
             else {
@@ -878,12 +879,12 @@ public class TicketDetails implements Serializable {
         }
 
         // Printing out the price of ticket
-        System.out.println("The price of the ticket is " + basePrice);
+        //System.out.println("The price of the ticket is " + basePrice);
         ticketDetails.setPrice(basePrice);
 
         // Adding the ticket into the database
         originalTicketDetailsDB.add(ticketDetails);
-        System.out.println("Ticket details successfully added into the database!");
+        //System.out.println("Ticket details successfully added into the database!");
         return originalTicketDetailsDB;
     }
 }

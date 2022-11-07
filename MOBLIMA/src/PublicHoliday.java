@@ -1,8 +1,9 @@
 package MOBLIMA.src;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class PublicHoliday {
+public class PublicHoliday implements Serializable {
     // Attributes
     private Calendar date;
     private String name;

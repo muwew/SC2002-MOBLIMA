@@ -50,12 +50,12 @@ public class Ticket implements Serializable {
     // Methods
     public void printTicketDetails () {
         System.out.println("Details of ticket are as follows:\n" +
+                        "Movie Title: " + movieSlot.getMovie().getMovieTitle() +"\n" +
                 "Movie Type: " + ticketDetails.getMovieType().toString() + "\n" +
                 "Ticket Type: " + ticketDetails.getTicketType().toString() + "\n" +
                 "Age Bracket: " + ticketDetails.getAgeBracket().toString() + "\n" +
                 "Cinema Class: " + ticketDetails.getCinemaClass().toString() + "\n" +
                 "Seat: " + seat.getSeatID() + "\n" +
-                "Seat Type: " + seat.getSeatType()/* + "\n" +
-                "Movie Name: " + movieSlot.getMovie().getMovieName()*/ );
+                "Seat Type: " + seat.getSeatType() + "\n");
     }
 }

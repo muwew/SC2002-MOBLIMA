@@ -24,7 +24,7 @@ public abstract class Menu {
         return prevMenu;
     }
 
-    public void printMovieList() {
+    /*public void printMovieList() {
         final ArrayList<Movie> movieList = (ArrayList<Movie>) readData("movielist.txt");;
 
         System.out.println("================================================");
@@ -33,5 +33,5 @@ public abstract class Menu {
         for(Movie e: movieList){
             System.out.println(i++ +") "+e.getMovieTitle()+" <"+e.getMovieShowingStatus()+">");
         }
-    }
+    }*/
 }

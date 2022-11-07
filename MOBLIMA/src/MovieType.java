@@ -1,7 +1,8 @@
 package MOBLIMA.src;
+import java.io.Serializable;
 import java.util.Objects;
 
-public enum MovieType {
+public enum MovieType implements Serializable {
     DIGITAL, BLOCKBUSTER, THREE_D, EXCLUSIVE, IMAX_THREE_D;
 
     public String toString () {

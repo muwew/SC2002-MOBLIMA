@@ -1,7 +1,8 @@
 package MOBLIMA.src;
+import java.io.Serializable;
 import java.util.Objects;
 
-public enum AgeBracket {
+public enum AgeBracket implements Serializable {
     STUDENT, CHILD, ADULT, SENIOR_CTZ;
 
     public String toString () {

@@ -1,8 +1,9 @@
 package MOBLIMA.src;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public enum SeatType {
+public enum SeatType implements Serializable {
     NORMAL_SEAT, COUPLE_SEAT, ELITE_SEAT, ULTIMA_SEAT;
 
     public String toString () {

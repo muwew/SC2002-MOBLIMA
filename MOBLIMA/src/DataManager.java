@@ -45,7 +45,7 @@ public class DataManager {
         cast.add("Sam Worthington"); cast.add("Zoe Saldana"); cast.add("Stephen Lang"); cast.add("Michelle Rodriguez"); cast.add("Sigourney Weaver");
         MovieDetails movieDetails = new MovieDetails(cast, "James Cameron",
                 "On the lush alien world of Pandora live the Na'vi, beings who appear primitive but are highly evolved. Because the planet's environment is poisonous, human/Na'vi hybrids, called Avatars, must link to human minds to allow for free movement on Pandora. Jake Sully (Sam Worthington), a paralyzed former Marine, becomes mobile again through one such Avatar and falls in love with a Na'vi woman (Zoe Saldana). As a bond with her grows, he is drawn into a battle for the survival of her world.",
-                "English", Rated.PG, 162, "17/12/2009", -1);
+                "English", Rated.PG, 162, "17/12/2009", -1, new ArrayList<>());
         movie.setMovieDetails(movieDetails);
         Cinema cinema1 = new Cinema(CinemaClass.NORMAL,null, Location.JEM, 1);
         Cinema cinema2 = new Cinema(CinemaClass.NORMAL, null, Location.WEST_MALL, 1);
@@ -59,7 +59,7 @@ public class DataManager {
         updateData(movieList, "movielist.txt");
 
         ArrayList<MovieGoer> userList = new ArrayList<>();
-        MovieGoer movieGoer = new MovieGoer("xavier", "xavier", 91234567, "xavier@gmail,com", "password1", new ArrayList<Booking>(), AgeBracket.ADULT, 22);
+        MovieGoer movieGoer = new MovieGoer("guest", "xavier", 91234567, "guest@gmail,com", "password", new ArrayList<Booking>(), 22);
         userList.add(movieGoer);
         updateData(userList, "useraccounts.txt");
         ArrayList<MovieAdmin> adminList = new ArrayList<>();
