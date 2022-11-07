@@ -45,20 +45,27 @@ public class DataManager {
         cast.add("Sam Worthington"); cast.add("Zoe Saldana"); cast.add("Stephen Lang"); cast.add("Michelle Rodriguez"); cast.add("Sigourney Weaver");
         MovieDetails movieDetails = new MovieDetails(cast, "James Cameron",
                 "On the lush alien world of Pandora live the Na'vi, beings who appear primitive but are highly evolved...",
-                "English", Rated.PG, 162, "17 December 2009", 4.6);
+                "English", Rated.PG, 162, "17 December 2009", 4.6, new ArrayList<Double>(), new ArrayList<String>());
         movie.setMovieDetails(movieDetails);
         movieList.add(movie);
         updateData(movieList, "movielist.txt");
 
+
+        // add example admin
         ArrayList<MovieAdmin> adminList = new ArrayList<>();
         MovieAdmin admin = new MovieAdmin("admin", "password");
         adminList.add(admin);
         updateData(adminList, "adminaccounts.txt");
 
-        /*adminList = (ArrayList<MovieAdmin>) readData("adminaccounts.txt");
-        for (int i = 0; i < adminList.size(); i++) {
-            System.out.println(adminList.get(i).getUsername());
-        }*/
+        // add example moviegoer
+        ArrayList<MovieGoer> movieGoerList = new ArrayList<>();
+        MovieGoer guest = new MovieGoer("guest", "password");
+        guest.setAge(21);
+        guest.setAgeBracket(guest.age);
+        guest.setEmailAddress("guest@gmail.com");
+        guest.setMobileNumber("80009000");
+        movieGoerList.add(guest);
+        updateData(movieGoerList, "accounts.txt");
 
     } // main
 } //class

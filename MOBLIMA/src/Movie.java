@@ -1,6 +1,7 @@
 package MOBLIMA.src;
 import java.io.Serializable;
 import java.util.*;
+
 public class Movie implements Serializable {
     private String movieTitle;
     private ArrayList<MovieSlot> movieSlot;
@@ -56,6 +57,14 @@ public class Movie implements Serializable {
         this.movieSlot = movieSlot;
     }
 
+    public void printMovieSlots(){
+        System.out.print("Available movie slots:");
+        for(MovieSlot m: movieSlot){
+            System.out.print(m + " ");
+        }
+        System.out.println("\n");
+    }
+
     public MovieDetails getMovieDetails(){
         return movieDetails;
     }
@@ -73,4 +82,22 @@ public class Movie implements Serializable {
             input = sc.nextLine();
         }
     }
+
+    public void printMovieDetails(){
+        System.out.println("Title: " + movieTitle);
+        printMovieSlots();
+        System.out.println("Showing status: " + movieShowingStatus);
+        movieDetails.printMovieDetails();
+    }
+
+    
+    public void addRating(Double rating){
+        movieDetails.getRatingList().add(rating);
+        movieDetails.setRating();
+    }
+
+    public void addReview(String review){
+        movieDetails.getReviewList().add(review);
+    }
+
 }
