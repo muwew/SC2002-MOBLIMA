@@ -1,6 +1,13 @@
 package MOBLIMA.src;
+import MOBLIMA.src.Accounts.MovieAdmin;
+import MOBLIMA.src.Accounts.MovieGoer;
+import MOBLIMA.src.Enums.CinemaClass;
+import MOBLIMA.src.Enums.Cineplex;
+import MOBLIMA.src.Enums.MovieShowingStatus;
+import MOBLIMA.src.Enums.Rated;
+import MOBLIMA.src.Model.*;
+
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -37,6 +44,7 @@ public class DataManager {
         }
     }
 
+    //initialises the data
     public static void main(String[] args) {
         ArrayList<Movie> movieList = new ArrayList<>();
         Movie movie = new Movie("Avatar");
@@ -47,13 +55,13 @@ public class DataManager {
                 "On the lush alien world of Pandora live the Na'vi, beings who appear primitive but are highly evolved. Because the planet's environment is poisonous, human/Na'vi hybrids, called Avatars, must link to human minds to allow for free movement on Pandora. Jake Sully (Sam Worthington), a paralyzed former Marine, becomes mobile again through one such Avatar and falls in love with a Na'vi woman (Zoe Saldana). As a bond with her grows, he is drawn into a battle for the survival of her world.",
                 "English", Rated.PG, 162, "17/12/2009", -1, new ArrayList<>());
         movie.setMovieDetails(movieDetails);
-        Cinema cinema1 = new Cinema(CinemaClass.NORMAL,null, Location.JEM, 1);
-        Cinema cinema2 = new Cinema(CinemaClass.NORMAL, null, Location.WEST_MALL, 1);
+        Cinema cinema1 = new Cinema(CinemaClass.NORMAL, Cineplex.JEM, 1);
+        Cinema cinema2 = new Cinema(CinemaClass.NORMAL, Cineplex.WEST_MALL, 1);
         ArrayList<MovieSlot> movieSlotList = new ArrayList<>();
-        movieSlotList.add(new MovieSlot(9, 2, 17, 00, cinema1, movie));
-        movieSlotList.add(new MovieSlot(9, 2, 15, 00, cinema1, movie));
-        movieSlotList.add(new MovieSlot(9, 2, 14, 00, cinema1, movie));
-        movieSlotList.add(new MovieSlot(9, 2, 14, 00, cinema2, movie));
+        movieSlotList.add(new MovieSlot(9, 2, 17, 0, cinema1, movie));
+        movieSlotList.add(new MovieSlot(9, 2, 15, 0, cinema1, movie));
+        movieSlotList.add(new MovieSlot(9, 2, 14, 0, cinema1, movie));
+        movieSlotList.add(new MovieSlot(11, 8, 14, 0, cinema2, movie));
         movie.setMovieSlot(movieSlotList);
         movieList.add(movie);
         updateData(movieList, "movielist.txt");
