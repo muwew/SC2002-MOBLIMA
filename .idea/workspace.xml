@@ -3,69 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d3de45ae-0027-4a45-8a06-25f6c4dd2d52" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/accounts/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Accounts/MovieAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/accounts/MovieAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Accounts/MovieGoer.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/accounts/MovieGoer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/DataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Enums/AgeBracket.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/enums/AgeBracket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Enums/CinemaClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/enums/CinemaClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Enums/Cineplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/enums/Cineplex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Enums/MovieShowingStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/enums/MovieShowingStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Enums/MovieType.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/enums/MovieType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Enums/Rated.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/enums/Rated.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Enums/SeatType.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/enums/SeatType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Enums/TicketType.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/enums/TicketType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/MOBLIMA_App.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/MOBLIMA_App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Menus/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/menus/AdminMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Menus/BookingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/menus/BookingMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Menus/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/menus/MainMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Menus/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/menus/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Menus/UserMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/menus/UserMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Model/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Model/Cinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/Cinema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/Movie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Model/MovieDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/MovieDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Model/MovieSlot.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/MovieSlot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Model/PublicHoliday.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/PublicHoliday.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Model/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/Review.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Model/Seat.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/Seat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Model/TicketDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/TicketDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/Model/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccounts.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/menus/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/menus/AdminMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movielist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/movielist.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Accounts/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Accounts/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Accounts/MovieAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Accounts/MovieAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Accounts/MovieGoer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Accounts/MovieGoer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/DataManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/DataManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/AgeBracket$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/AgeBracket$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/AgeBracket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/AgeBracket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/CinemaClass$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/CinemaClass$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/CinemaClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/CinemaClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/Cineplex$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/Cineplex$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/Cineplex.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/Cineplex.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/MovieShowingStatus$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/MovieShowingStatus$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/MovieShowingStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/MovieShowingStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/MovieType$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/MovieType$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/MovieType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/MovieType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/Rated$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/Rated$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/Rated.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/Rated.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/SeatType$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/SeatType$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/SeatType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/SeatType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/TicketType$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/TicketType$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/TicketType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Enums/TicketType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/FileIO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/MOBLIMA_App.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/MOBLIMA_App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/AdminMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/AdminMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/BookingMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/BookingMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/MainMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/MainMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/Menu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/UserMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/UserMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Booking.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Cinema.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Cinema.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Movie.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/MovieDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/MovieDetails.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/MovieSlot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/MovieSlot.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/PublicHoliday.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/PublicHoliday.class" afterDir="false" />
@@ -74,11 +18,8 @@
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Ticket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/TicketDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/TicketDetails.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Util.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/adminaccounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/adminaccounts.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/movielist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/movielist.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/useraccounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/useraccounts.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticketlist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ticketlist.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/useraccounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/useraccounts.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +61,7 @@
       <recent name="C:\Users\xavie\Documents\GitHub\SC2002-MOBLIMA" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MOBLIMA.src.MOBLIMA_App">
+  <component name="RunManager" selected="Application.MOBLIMA_App">
     <configuration name="DataManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MOBLIMA.src.DataManager" />
       <module name="SC2002-MOBLIMA" />
@@ -182,8 +123,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MOBLIMA.src.MOBLIMA_App" />
-        <item itemvalue="Application.MOBLIMA.src.DataManager" />
+        <item itemvalue="Application.MOBLIMA_App" />
+        <item itemvalue="Application.DataManager" />
         <item itemvalue="Application.SeatsPrinting" />
       </list>
     </recent_temporary>

@@ -96,9 +96,11 @@ public class AdminMenu extends Menu {
             case 1:
                 sc.nextLine();
                 addMovie();
+                updateData(movieList, "movielist.txt");
                 break;
             case 2:
                 updateMovie();
+                updateData(movieList, "movielist.txt");
                 break;
             case 3:
                 printMovieList(true);
@@ -477,7 +479,6 @@ public class AdminMenu extends Menu {
                 System.out.println("Enter password:");
                 String password = sc.next();
                 MovieAdmin newAcc = new MovieAdmin(user, password);
-                ArrayList<MovieAdmin> adminList = (ArrayList<MovieAdmin>) readData("adminaccounts.txt");
                 adminList.add(newAcc);
                 updateData(adminList, "adminaccounts.txt");
                 break;
