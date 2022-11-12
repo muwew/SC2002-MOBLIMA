@@ -1,19 +1,27 @@
 package MOBLIMA.src;
-import MOBLIMA.src.Accounts.MovieAdmin;
-import MOBLIMA.src.Accounts.MovieGoer;
-import MOBLIMA.src.Enums.CinemaClass;
-import MOBLIMA.src.Enums.Cineplex;
-import MOBLIMA.src.Enums.MovieShowingStatus;
-import MOBLIMA.src.Enums.Rated;
-import MOBLIMA.src.Model.*;
+import MOBLIMA.src.accounts.MovieAdmin;
+import MOBLIMA.src.accounts.MovieGoer;
+import MOBLIMA.src.enums.CinemaClass;
+import MOBLIMA.src.enums.Cineplex;
+import MOBLIMA.src.enums.MovieShowingStatus;
+import MOBLIMA.src.enums.Rated;
+import MOBLIMA.src.model.*;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+/**
+ * Class to read and update text files used to store the data required.
+ */
 public class DataManager {
 
+    /**
+     * Method to update the data.
+     * @param list Object to be stored in text file.
+     * @param fileName Name of text file to be stored to.
+     */
     public static void updateData(Object list, String fileName) {
         try {
             FileOutputStream fos = new FileOutputStream(fileName);
@@ -26,6 +34,12 @@ public class DataManager {
             System.out.println("File input error");
         }
     }
+
+    /**
+     * Method to read the data.
+     * @param fileName Name of text file that stores data.
+     * @return Objects stored in text file.
+     */
     public static Object readData(String fileName){
         try {
             FileInputStream fis = new FileInputStream(fileName);
@@ -44,7 +58,10 @@ public class DataManager {
         }
     }
 
-    //initialises the data
+    /**
+     * Initialises data in files.
+     * @param args
+     */
     public static void main(String[] args) {
         ArrayList<Movie> movieList = new ArrayList<>();
         Movie movie = new Movie("Avatar");
@@ -78,7 +95,7 @@ public class DataManager {
         updateData(new ArrayList<TicketDetails>(), "ticketlist.txt");
         updateData(new ArrayList<PublicHoliday>(), "phlist.txt");
 
-    } // main
-} //class
+    }
+}
 
 

@@ -1,6 +1,9 @@
 package MOBLIMA.src;
-import MOBLIMA.src.Menus.*;
+import MOBLIMA.src.menus.*;
 
+/**
+ * Main application.
+ */
 public class MOBLIMA_App {
     public static void main(String[] args) {
         //initialise stuff
