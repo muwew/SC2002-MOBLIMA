@@ -272,14 +272,18 @@ public class MovieDetails implements Serializable {
      */
     public void printMovieDetails(){
         System.out.print("Cast: ");
-        for(String castMember : cast){
-            if(castMember.equals(cast.get(cast.size()-1)))
-                System.out.println(castMember);
-            else
-                System.out.print(castMember+", ");
+        if(cast != null ) {
+            for (String castMember : cast) {
+                if (castMember.equals(cast.get(cast.size() - 1)))
+                    System.out.println(castMember);
+                else
+                    System.out.print(castMember + ", ");
+            }
         }
+        else
+            System.out.println();
         System.out.println("Director: "+director);
-        System.out.println("Sypnosis: " + printLongString(synopsis, 70));
+        System.out.println("Synopsis: " + printLongString(synopsis, 70));
         System.out.println("Language: "+language);
         System.out.println("Rating: "+movieRated.toString());
         System.out.println("Runtime: "+runtime + " mins") ;

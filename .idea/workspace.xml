@@ -4,20 +4,9 @@
     <list default="true" id="d3de45ae-0027-4a45-8a06-25f6c4dd2d52" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MOBLIMA/src/menus/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/menus/AdminMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/model/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/model/MovieDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/MovieDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movielist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/movielist.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/AdminMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/AdminMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/UserMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/UserMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Booking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Cinema.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Cinema.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/MovieDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/MovieDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/MovieSlot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/MovieSlot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/PublicHoliday.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/PublicHoliday.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Review.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Review.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Seat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Seat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Ticket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/TicketDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/TicketDetails.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Model/Util.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/movielist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/movielist.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticketlist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ticketlist.txt" afterDir="false" />
     </list>

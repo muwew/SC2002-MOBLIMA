@@ -205,6 +205,7 @@ public class AdminMenu extends Menu {
      */
     protected void updateMovieShowingStatus(Movie movie){
         movie.setMovieShowingStatus();
+        updateData(movieList, "movielist.txt");
         updateMovie();
     }
 
@@ -269,6 +270,7 @@ public class AdminMenu extends Menu {
             movieslot.setMovieType();
 
             newMovieSlots.add(movieslot);
+            updateData(movieList, "movielist.txt");
         }
         catch(InputMismatchException e){
             System.out.println("Invalid input!");
@@ -291,6 +293,7 @@ public class AdminMenu extends Menu {
         int indexToDelete = sc.nextInt();
         if(indexToDelete == 0 || indexToDelete > newMovieSlots.size()) return;
         newMovieSlots.remove(indexToDelete-1);
+        updateData(movieList, "movielist.txt");
     }
 
     /**
@@ -309,6 +312,8 @@ public class AdminMenu extends Menu {
     protected void updateMovieDetails(MovieDetails movieDetails){
         boolean exit = false;
 
+        movieDetails.printMovieDetails();
+
         while(!exit){
             printSep();
             System.out.println("1) Cast");
@@ -323,15 +328,13 @@ public class AdminMenu extends Menu {
 
             int choice = sc.nextInt();
 
-            if (choice == 0) exit = true;
-
             sc.nextLine();
             switch(choice){
                 case 1:
                     System.out.println("Enter cast member's name: (type 0 to stop)");
                     ArrayList<String> cast = new ArrayList<>();
                     String input = sc.nextLine();
-                    while(input != "0"){
+                    while(!input.equals("0")){
                         cast.add(input);
                         input = sc.nextLine();
                     }
@@ -361,7 +364,10 @@ public class AdminMenu extends Menu {
                     System.out.println("Enter opening date: dayOfMonth <space> month <space> year");
                     movieDetails.setOpeningDate(sc.nextLine());
                     break;
+                case 0:
+                    exit = true;
             }
+            updateData(movieList, "movielist.txt");
         }
 
 
@@ -410,7 +416,8 @@ public class AdminMenu extends Menu {
      * 1. Add public holiday.
      * 2. Delete public holiday.
      * 3. Change permissions for viewing top 5 list.
-     * 4. Change ticket prices.
+     * 4. Change ticket prices by adding ticket details to be changed and
+     *    then entering new price.
      * 5. Add new admin account.
      * 6. Go back.
      */
