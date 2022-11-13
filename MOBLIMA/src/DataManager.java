@@ -61,6 +61,12 @@ public class DataManager {
     /**
      * Initialises data in files.
      */
+
+    /**
+     * @param args
+     */
+
+
     public static void main(String[] args) {
         ArrayList<Movie> movieList = new ArrayList<>();
         Movie movie = new Movie("Avatar");
