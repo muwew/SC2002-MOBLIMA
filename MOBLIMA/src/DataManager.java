@@ -60,9 +60,7 @@ public class DataManager {
 
     /**
      * Initialises data in files.
-     */
-
-    /**
+     *
      * @param args
      */
 
