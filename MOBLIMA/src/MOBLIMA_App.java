@@ -6,9 +6,6 @@ import MOBLIMA.src.menus.*;
  */
 public class MOBLIMA_App {
     
-    /** 
-     * @param args
-     */
     public static void main(String[] args) {
         //initialise stuff
         MainMenu main = new MainMenu();
@@ -19,3 +16,4 @@ public class MOBLIMA_App {
     }
 
 }
+
