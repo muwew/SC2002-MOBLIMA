@@ -61,7 +61,7 @@ public class DataManager {
     /**
      * Initialises data in files.
      *
-     * @param args
+     * @param args an array of command-line arguments for the application
      */
 
 
