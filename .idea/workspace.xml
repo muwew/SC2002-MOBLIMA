@@ -3,25 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d3de45ae-0027-4a45-8a06-25f6c4dd2d52" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/DataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/accounts/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/accounts/MovieAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/MovieAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/accounts/MovieGoer.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/MovieGoer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MOBLIMA/src/menus/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/menus/AdminMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/menus/BookingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/menus/BookingMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/menus/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/menus/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MOBLIMA/src/menus/UserMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/menus/UserMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/model/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminaccounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/adminaccounts.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MOBLIMA/src/model/MovieDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/MOBLIMA/src/model/MovieDetails.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/movielist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/movielist.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/AdminMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/AdminMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/UserMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/MOBLIMA/src/Menus/UserMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/adminaccounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/adminaccounts.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/movielist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/movielist.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/phlist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/phlist.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/ticketlist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/ticketlist.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/useraccounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SC2002-MOBLIMA/useraccounts.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticketlist.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ticketlist.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/useraccounts.txt" beforeDir="false" afterPath="$PROJECT_DIR$/useraccounts.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +54,7 @@
       <recent name="C:\Users\xavie\Documents\GitHub\SC2002-MOBLIMA" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DataManager">
+  <component name="RunManager" selected="Application.MOBLIMA_App">
     <configuration name="DataManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MOBLIMA.src.DataManager" />
       <module name="SC2002-MOBLIMA" />
@@ -126,8 +116,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DataManager" />
         <item itemvalue="Application.MOBLIMA_App" />
+        <item itemvalue="Application.DataManager" />
         <item itemvalue="Application.SeatsPrinting" />
       </list>
     </recent_temporary>

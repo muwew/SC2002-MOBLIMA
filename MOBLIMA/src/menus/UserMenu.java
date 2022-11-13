@@ -427,6 +427,10 @@ public class UserMenu extends Menu {
         allCineplexSlots.add(WMSlots);
 
         int j=1;
+        if(allCineplexSlots.size() < 1){
+            System.out.println("There are currently no show times!");
+            return;
+        }
         for(ArrayList<MovieSlot> locationSlots: allCineplexSlots){
             locationSlots.sort((o1, o2) -> o1.getaDate().compareTo(o2.getaDate()));
 
@@ -469,10 +473,6 @@ public class UserMenu extends Menu {
                                 + " ("+ e1.getMovieType()+")" + "\t");
                 }
                 System.out.println();
-            }
-            else{
-                System.out.println("There is currently no existing movie show times!");
-                return;
             }
         }
 

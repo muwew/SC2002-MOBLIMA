@@ -264,11 +264,13 @@ public class MovieDetails implements Serializable {
      */
     public void updateRating(){
         double rating=0;
-        for(Review e: reviews){
-            rating += e.getRating();
-        }
+        if(!(reviews.size() <= 1)) {
+            for (Review e : reviews) {
+                rating += e.getRating();
+            }
 
-        this.rating = rating / reviews.size();
+            this.rating = rating / reviews.size();
+        }
     }
 
     /**

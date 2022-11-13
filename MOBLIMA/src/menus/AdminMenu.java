@@ -385,7 +385,7 @@ public class AdminMenu extends Menu {
         System.out.println("Top 5 by ratings:");
         int i=1;
         for (Movie e: sortMovieList) {
-            if(i == 5) break;
+            if(i == 6) break;
 
             if(e.getMovieDetails().getRating() == -1)
                 System.out.println(i + ") " + e.getMovieTitle() + "<Rating: NA>");
@@ -395,11 +395,10 @@ public class AdminMenu extends Menu {
         }
 
         System.out.println("\nTop 5 by ticket sales:");
-        printSep();
         i=1;
         sortMovieList.sort((o1, o2) -> Integer.compare(o2.getTotalMovieSales(), o1.getTotalMovieSales()));
         for (Movie e: sortMovieList) {
-            if (i == 5) break;
+            if (i == 6) break;
 
             System.out.println(i+") " + e.getMovieTitle() + ": Total ticket sales: " + e.getTotalMovieSales());
             i++;
