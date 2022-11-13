@@ -5,6 +5,10 @@ import MOBLIMA.src.menus.*;
  * Main application.
  */
 public class MOBLIMA_App {
+    
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
         //initialise stuff
         MainMenu main = new MainMenu();

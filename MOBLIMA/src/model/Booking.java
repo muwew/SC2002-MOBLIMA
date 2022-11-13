@@ -190,6 +190,10 @@ public class Booking implements Serializable {
         this.numberOfTicketsPurchased = this.ticketsPurchased.size();
     }
 
+    
+    /** 
+     * @param numberOfTicketsPurchased
+     */
     public void setNumberOfTicketsPurchased(int numberOfTicketsPurchased) {
         this.numberOfTicketsPurchased = numberOfTicketsPurchased;
     }

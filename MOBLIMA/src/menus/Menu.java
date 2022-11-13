@@ -40,6 +40,21 @@ public abstract class Menu {
      */
     protected ArrayList<MovieAdmin> adminList = (ArrayList<MovieAdmin>) readData("adminaccounts.txt");
 
+    
+    
+    
+    /** 
+     * @param currentMenu
+     * @param nextMenu
+     */
+    /** 
+     * @param currentMenu
+     * @param nextMenu
+     */
+    /** 
+     * @param currentMenu
+     * @param nextMenu
+     */
     /**
      * Method called when menus are first opened.
      */

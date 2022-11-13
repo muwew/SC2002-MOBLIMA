@@ -187,6 +187,10 @@ public class MovieDetails implements Serializable {
         }
     }
 
+    
+    /** 
+     * @param movieRated
+     */
     public void setMovieRated(Rated movieRated) {
         this.movieRated = movieRated;
     }
