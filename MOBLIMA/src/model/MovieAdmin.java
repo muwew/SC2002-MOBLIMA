@@ -1,4 +1,6 @@
-package MOBLIMA.src.accounts;
+package MOBLIMA.src.model;
+
+import MOBLIMA.src.model.Account;
 
 import java.io.Serializable;
 

@@ -1,5 +1,5 @@
 package MOBLIMA.src.menus;
-import MOBLIMA.src.accounts.MovieAdmin;
+import MOBLIMA.src.model.MovieAdmin;
 import MOBLIMA.src.model.*;
 
 import java.text.DecimalFormat;
@@ -454,7 +454,7 @@ public class AdminMenu extends Menu {
                 printSep();
                 for(PublicHoliday e: phList){
                     System.out.println(i++ +") " + e.getName()
-                            + "(" + e.getDate().get(Calendar.DAY_OF_MONTH) +"/" + e.getDate().get(Calendar.MONTH)+1 + ")");
+                            + "(" + e.getDate().get(Calendar.DAY_OF_MONTH) +"/" + (e.getDate().get(Calendar.MONTH)+1) + ")");
                 }
                 System.out.println("0) Back");
                 printSep();

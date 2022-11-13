@@ -1,6 +1,5 @@
 package MOBLIMA.src.model;
 
-import MOBLIMA.src.accounts.MovieGoer;
 import MOBLIMA.src.enums.AgeBracket;
 import MOBLIMA.src.enums.CinemaClass;
 import MOBLIMA.src.enums.TicketType;

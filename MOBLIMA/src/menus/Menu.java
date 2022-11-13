@@ -1,6 +1,6 @@
 package MOBLIMA.src.menus;
-import MOBLIMA.src.accounts.MovieAdmin;
-import MOBLIMA.src.accounts.MovieGoer;
+import MOBLIMA.src.model.MovieAdmin;
+import MOBLIMA.src.model.MovieGoer;
 import MOBLIMA.src.model.Movie;
 import MOBLIMA.src.model.PublicHoliday;
 import MOBLIMA.src.model.TicketDetails;

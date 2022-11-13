@@ -1,6 +1,6 @@
 package MOBLIMA.src;
-import MOBLIMA.src.accounts.MovieAdmin;
-import MOBLIMA.src.accounts.MovieGoer;
+import MOBLIMA.src.model.MovieAdmin;
+import MOBLIMA.src.model.MovieGoer;
 import MOBLIMA.src.enums.CinemaClass;
 import MOBLIMA.src.enums.Cineplex;
 import MOBLIMA.src.enums.MovieShowingStatus;
@@ -28,7 +28,7 @@ public class DataManager {
             ObjectOutputStream oos = new ObjectOutputStream(fos);
 
             oos.writeObject(list);
-            System.out.println("Saving data to " + fileName + " ...");
+            //System.out.println("Saving data to " + fileName + " ...");
             oos.close();
         } catch (IOException e) {
             System.out.println("File input error");
@@ -46,7 +46,7 @@ public class DataManager {
             ObjectInputStream ois = new ObjectInputStream(fis);
 
             Object list = ois.readObject();
-            System.out.print("Reading data from " + fileName + " ...\n");
+            //System.out.print("Reading data from " + fileName + " ...\n");
             ois.close();
             return list;
         } catch (IOException e) {

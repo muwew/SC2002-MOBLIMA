@@ -1,7 +1,7 @@
 package MOBLIMA.src.menus;
 import MOBLIMA.src.model.Booking;
 import MOBLIMA.src.model.Movie;
-import MOBLIMA.src.accounts.MovieGoer;
+import MOBLIMA.src.model.MovieGoer;
 import MOBLIMA.src.model.MovieSlot;
 
 import java.util.*;

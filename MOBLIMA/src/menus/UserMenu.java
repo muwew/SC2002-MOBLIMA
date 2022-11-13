@@ -1,7 +1,7 @@
 package MOBLIMA.src.menus;
 
-import MOBLIMA.src.accounts.MovieAdmin;
-import MOBLIMA.src.accounts.MovieGoer;
+import MOBLIMA.src.model.MovieAdmin;
+import MOBLIMA.src.model.MovieGoer;
 import MOBLIMA.src.enums.CinemaClass;
 import MOBLIMA.src.model.*;
 
@@ -352,14 +352,19 @@ public class UserMenu extends Menu {
         int choice = sc.nextInt();
 
         if(choice == 1){
-            printSep();
-            System.out.println("All reviews: ");
+            if(movie.getMovieDetails().getReviews().size() > 0) {
+                printSep();
+                System.out.println("All reviews: ");
 
-            for(Review e: movie.getMovieDetails().getReviews()){
-                System.out.println(e.getUser() + ": Rating: " + String.format("%.1f", e.getRating()));
-                System.out.println(e.getComment());
+                for (Review e : movie.getMovieDetails().getReviews()) {
+                    System.out.println(e.getUser() + ": Rating: " + String.format("%.1f", e.getRating()));
+                    System.out.println(e.getComment());
+                }
+                printSep();
             }
-            printSep();
+            else{
+                System.out.println("There are currently no reviews for this movie!");
+            }
         }
         else if(choice == 2){
             rateReviewMovie(movie);
@@ -465,6 +470,10 @@ public class UserMenu extends Menu {
                 }
                 System.out.println();
             }
+            else{
+                System.out.println("There is currently no existing movie show times!");
+                return;
+            }
         }
 
         System.out.println("\n0) Back");
@@ -478,22 +487,26 @@ public class UserMenu extends Menu {
         int index = sc.nextInt();
         if(index != 0 && index <= allSlotsList.size()){
             MovieSlot selectedMovieSlot = allSlotsList.get(index-1);
-            //send to booking part
-            if(loggedIn) {
-                Booking booking = new Booking(user, selectedMovieSlot);
-                BookingMenu bookingMenu = new BookingMenu(booking, user, movieList, userList);
-                open(this, bookingMenu);
+            if(!selectedMovieSlot.getMovie().getMovieShowingStatus().equals("COMING_SOON")) {
+                //send to booking part
+                if (loggedIn) {
+                    Booking booking = new Booking(user, selectedMovieSlot);
+                    BookingMenu bookingMenu = new BookingMenu(booking, user, movieList, userList);
+                    open(this, bookingMenu);
+                } else {
+                    Booking booking = new Booking(selectedMovieSlot);
+                    BookingMenu bookingMenu = new BookingMenu(booking, movieList, userList);
+                    open(this, bookingMenu);
+                }
+
+                //aft booking need to read updated files
+                movieList = (ArrayList<Movie>) readData("movielist.txt");
+                ticketList = (ArrayList<TicketDetails>) readData("ticketlist.txt");
+                userList = (ArrayList<MovieGoer>) readData("useraccounts.txt");
             }
             else{
-                Booking booking = new Booking(selectedMovieSlot);
-                BookingMenu bookingMenu = new BookingMenu(booking, movieList, userList);
-                open(this, bookingMenu);
+                System.out.println("Invalid option! Cannot book movie yet!");
             }
-
-            //aft booking need to read updated files
-            movieList = (ArrayList<Movie>) readData("movielist.txt");
-            ticketList = (ArrayList<TicketDetails>) readData("ticketlist.txt");
-            userList = (ArrayList<MovieGoer>) readData("useraccounts.txt");
         }
         else if(index == 0)
             return;
