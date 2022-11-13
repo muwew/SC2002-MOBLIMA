@@ -79,6 +79,10 @@ public class MovieSlot implements Serializable {
         }
     }
 
+    
+    /** 
+     * @param movieType
+     */
     public void setMovieType(MovieType movieType) {
         this.movieType = movieType;
     }
